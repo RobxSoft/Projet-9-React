@@ -5,7 +5,8 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
-import Accueil from './views/Accueil.js'
+import Accueil from './views/Home.js'
+import Page from './views/TestPage'
 
 function App() {
   return (
