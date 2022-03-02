@@ -8,6 +8,10 @@ import {
 import Home from './views/Home.js'
 import Page from './views/TestPage'
 
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+
 function App() {
   return (
     <Router>
