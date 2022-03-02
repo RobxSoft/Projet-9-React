@@ -16,12 +16,7 @@ function App() {
   return (
     <Router>
       <Routes>
-<<<<<<< HEAD
-        <Route exact path='/' element={<Home />}></Route>
-        <Route exact path='/accueil' element={<Page />}></Route>
-=======
         <Route exact path='/' element={<Home />} />
->>>>>>> b6488486529fa77c0e1fa3ddc5012cf2ec881345
       </Routes>
     </Router>
   );

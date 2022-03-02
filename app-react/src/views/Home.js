@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 import WS_Background from '../img/worldseed_thumbnail.jpeg'
 
