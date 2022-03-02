@@ -26,6 +26,7 @@ class Home extends React.Component {
                         
                     </div>
                 </div>
+                <Footer />
             </React.Fragment>
         )
     }
