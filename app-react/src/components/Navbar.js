@@ -20,7 +20,7 @@ class Navbar extends React.Component {
             <React.Fragment>
                 <nav>
                     <div className="nav-wrapper">
-                    <a href="#!" className="brand-logo"><img className="responsive-img" src={logo}/></a>
+                    <a href="#!" className="brand-logo responsive-img"><img src={logo}/></a>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
                     <ul className="right hide-on-med-and-down">
                         <li><a href="sass.html">Sass</a></li>
