@@ -5,13 +5,14 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
-import Accueil from './views/Accueil.js'
+import Home from './views/Home.js'
+import Page from './views/TestPage'
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path='/' element={<Accueil />} />
+        <Route exact path='/' element={<Home />} />
       </Routes>
     </Router>
   );
