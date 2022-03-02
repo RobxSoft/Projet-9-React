@@ -6,7 +6,7 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 import logo from '../img/Logo_Title.png'
 
-class Accueil extends React.Component {
+class Navbar extends React.Component {
 
     componentDidMount(){
         document.addEventListener('DOMContentLoaded', function() {
@@ -19,10 +19,10 @@ class Accueil extends React.Component {
         return (
             <React.Fragment>
                 <nav>
-                    <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo"><img class="responsive-img" src={logo}/></a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><MaterialIcon class="material-icons" icon="menu"/></a>
-                    <ul class="right hide-on-med-and-down">
+                    <div className="nav-wrapper">
+                    <a href="#!" className="brand-logo"><img className="responsive-img" src={logo}/></a>
+                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
+                    <ul className="right hide-on-med-and-down">
                         <li><a href="sass.html">Sass</a></li>
                         <li><a href="badges.html">Components</a></li>
                         <li><a href="collapsible.html">Javascript</a></li>
@@ -31,7 +31,7 @@ class Accueil extends React.Component {
                     </div>
                 </nav>
         
-                <ul class="sidenav" id="mobile-demo">
+                <ul className="sidenav" id="mobile-demo">
                     <li><a href="sass.html">Sass</a></li>
                     <li><a href="badges.html">Components</a></li>
                     <li><a href="collapsible.html">Javascript</a></li>
@@ -42,4 +42,4 @@ class Accueil extends React.Component {
     }
 }
 
-export default Accueil;
+export default Navbar;
