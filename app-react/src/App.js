@@ -11,8 +11,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path='/' element={<Accueil />}></Route>
-        <Route exact path='/accueil' element={<Page />}></Route>
+        <Route exact path='/' element={<Accueil />} />
       </Routes>
     </Router>
   );
