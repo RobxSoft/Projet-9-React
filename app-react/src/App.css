@@ -29,7 +29,9 @@ nav {
   line-height: 40px !important;
 }
 
-
+nav ul li {
+  width: 150px;
+}
 
 .left img {
   padding-right: 20px;
