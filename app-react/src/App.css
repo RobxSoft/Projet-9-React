@@ -171,9 +171,14 @@ body{
   align-items: center;
 }
 
-.searchbar .search-icon {
-  height: 58px !important;
+.material-icons {
+  line-height: 50px !important;
   margin-right: 10px;
+}
+
+.search-icon {
+  height: 42px !important;
+  line-height: 30px !important;
 }
 
 .social-network {
