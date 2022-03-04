@@ -4,7 +4,8 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
-import logo from '../img/Logo_Title.png'
+import Logo from '../img/Logo_Title.png';
+import WhiteLogo from '../img/White_Logo.png';
 
 class Navbar extends React.Component {
 
@@ -20,13 +21,16 @@ class Navbar extends React.Component {
             <React.Fragment>
                 <nav>
                     <div className="nav-wrapper">
-                    <a href="#!" className="brand-logo responsive-img"><img src={logo}/></a>
+                    <a href="#!" className="left"><img className="responsive-img" src={WhiteLogo}/></a>
+                    <ul className="hide-on-med-and-down">
+                        <li className="center"><a href="#">Shop</a></li>
+                        <li className="center"><a href="#">About Us</a></li>
+                    </ul>
+                    <a href="#!" className="brand-logo center"><img className="responsive-img" src={Logo}/></a>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
-                    <ul className="right hide-on-med-and-down">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">Javascript</a></li>
-                        <li><a href="mobile.html">Mobile</a></li>
+                    <ul className="hide-on-med-and-down right">
+                        <li><a href="#">Basket</a></li>
+                        <li><a href="#">Profile</a></li>
                     </ul>
                     </div>
                 </nav>

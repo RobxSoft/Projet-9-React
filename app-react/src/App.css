@@ -2,20 +2,25 @@ body{
   background-color: #262626;
 }
 
-.FeaturedShop{
+.featured-shop{
   margin-top: 10vh;
   padding-inline: 10%;
   color: #FFFFFF;
   position:relative;
 }
 
-.FeaturedShop .ShadowImg{
+.featured-shop .image-container{
+  position:relative;
+  height: 50%;
+}
+
+.featured-shop .shadow-img{
   display:inline-block;
   background: -webkit-linear-gradient(right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
   border-radius: 2vh;
 }
 
-.FeaturedShop .ShadowImg img{
+.featured-shop .shadow-img img{
   width: 100%;
   position:relative;
   border-radius: 2vh;
@@ -23,7 +28,7 @@ body{
   display:block;
 }
 
-.FeaturedShop h2{
+.featured-shop h2{
   position: absolute;
   top: 0%;
   margin: 0;
@@ -32,15 +37,16 @@ body{
   font-size: 30px;
 }
 
-.FeaturedShop p{
+.featured-shop p{
   font-size: 20px;
   position: absolute;
   padding-left: 2%;
-  top: 40%;
+  transform: translate(0, 40%);
   max-width: 35%;
+  bottom: 30%;
 }
 
-.FeaturedShop a{
+.featured-shop a{
   position: absolute;
   background-color: white;
   color: #262626;
@@ -48,38 +54,65 @@ body{
   border-radius: 1vh;
   height: auto;
   text-align: center;
-  top: 77%;
   padding-inline: 4%;
   padding-block: 1%;
-  left: 13%;
+  top: 80%;
+  left: 5%;
+  max-width: 45%;
 }
 
-@media only screen and (max-width: 1300px) {
-  .FeaturedShop p{
+@media only screen and (min-width: 1100px) {
+  .featured-shop p{
+    font-size: 18px;
+    max-width: 60%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .featured-shop p{
     font-size: 15px;
+    max-width: 60%;
+  }
+}
+
+
+@media only screen and (max-width: 992px) {
+  .featured-shop .featured-list .box{
+    width: 100%;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .featured-shop .featured-list .box{
+    width: 20%;
+    position: absolute;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .FeaturedShop p{
-    top: 30%;
-    max-width: 45%;
+  .featured-shop p{
+    font-size: 12px;
+    max-width: 50%;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .FeaturedShop p{
+  .featured-shop p{
     font-size: 12px;
-    top: 20%;
     max-width: 55%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .featured-shop p{
+    font-size: 10px;
+    max-width: 75%;
   }
 }
 
 .page-footer{
   background-color: #343434 !important;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 .brand-logo img, .left img {
@@ -100,7 +133,9 @@ nav {
   line-height: 40px !important;
 }
 
-
+nav ul li {
+  width: 150px;
+}
 
 .left img {
   padding-right: 20px;
@@ -110,4 +145,42 @@ nav {
 .col .responsive-img{
   width: 50%;
   height: auto;
+}
+
+.featured-shop{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.featured-shop .featured-list .box{
+  background:green;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.featuredGame{
+  display: flex;
+  width: 100%;
+}
+
+.featuredGame .icon{
+  background-image: url("img/worldseed_thumbnail.jpeg");
+  width: 20%;
+  border-radius: 1vh;
+}
+
+.featuredGame .icon:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.featuredGame h3{
+  font-size: 20px;
+  padding-inline: 5%;
+  margin: 0;
+  padding-block: 5%;
 }

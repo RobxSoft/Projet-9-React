@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import FeaturedGame from '../components/FeaturedGame';
 
 import WS_Background from '../img/worldseed_thumbnail.jpeg'
 
@@ -9,11 +10,11 @@ class Home extends React.Component {
     render(){
         return(
             <React.Fragment>
-                <Navbar></Navbar>
+                <Navbar/>
             
-                <div className="FeaturedShop row ">
-                    <div className="col m12 l8">
-                        <div className="ShadowImg">
+                <div className="featured-shop row ">
+                    <div className="image-container col m12 l8">
+                        <div className="shadow-img">
                             <img src={WS_Background} alt=""/>
                         </div>
                         <h2 className="flow-text">World Seed</h2>
@@ -23,11 +24,17 @@ class Home extends React.Component {
                         <a className="waves-effect waves-light btn-medium">Buy</a>
                     </div>
 
-                    <div className="col m12 l4">
-                        
+                    <div className="featured-list col m12 l4">
+                        <div className="box">
+                            <FeaturedGame/>
+                            <FeaturedGame/>
+                            <FeaturedGame/>
+                            <FeaturedGame/>
+                            <FeaturedGame/>
+                        </div>
                     </div>
                 </div>
-                <Footer />
+                <Footer/>
             </React.Fragment>
         )
     }
