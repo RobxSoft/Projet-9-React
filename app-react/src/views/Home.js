@@ -13,7 +13,7 @@ class Home extends React.Component {
                 <Navbar/>
             
                 <div className="featured-shop row ">
-                    <div className="image-container col m12 l8">
+                    <div className="image-container col s12 l8">
                         <div className="shadow-img">
                             <img src={WS_Background} alt=""/>
                         </div>
@@ -24,7 +24,7 @@ class Home extends React.Component {
                         <a className="waves-effect waves-light btn-medium">Buy</a>
                     </div>
 
-                    <div className="featured-list col m12 l4">
+                    <div className="featured-list col s12 l4">
                         <div className="box">
                             <FeaturedGame/>
                             <FeaturedGame/>
