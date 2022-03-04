@@ -2,13 +2,20 @@ body{
   background-color: #262626;
 }
 
+h2{
+  font-size: 30px !important;
+  margin-top: 0 !important;
+  font-weight: bold !important;
+  color: #FFFFFF;
+}
 /* SCROLLBAR CSS */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(45, 52, 54, 0.1);
+  background: rgba(45, 52, 54, 1);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -49,6 +56,7 @@ body{
   padding-top: 2%;
   padding-left: 2%;
   font-size: 30px;
+  font-weight: normal !important;
 }
 
 .FeaturedShop p{
@@ -199,4 +207,66 @@ body{
 
 .color, .color a {
   color: #8D8D8D !important;
+}
+
+.container-games {
+  margin-top: 5%;
+  margin-left: 10% !important;
+  margin-right: 10% !important;
+  border-radius: 1vh;
+  background-color: #343434;
+  color: #FFFFFF;
+  position: relative;
+  padding: 2%;
+}
+
+.send-game-container {
+  display: flex;
+  overflow-x:scroll;
+  justify-content: space-between;
+}
+
+
+
+.container-games a {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 2%;
+  border-radius: 1vh;
+  background-color: #343434;
+  border: 3px solid #262626;
+  box-shadow: 0;
+  text-align: center;
+  line-height: 30px;
+}
+
+.container-games a:hover {
+  background-color: #292828;
+}
+
+.container-games p{
+  font-size: 20px;
+  padding-left: 2%;
+  max-width: 35%;
+}
+
+.game-container {
+  background-color: #3171D8;
+  width: 300px;
+  height: 40vh;
+  margin-bottom: 20px;
+}
+
+.featured-title {
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+  display: flex;
+  justify-content: center;
+}
+
+.featured-title h2 {
+  background-color: #343434;
+  padding: 10px 10% 10px 10%;
+  border-radius: 1vh;
 }
