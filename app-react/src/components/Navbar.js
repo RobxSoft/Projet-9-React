@@ -19,9 +19,9 @@ class Navbar extends React.Component {
     render(){
         return (
             <React.Fragment>
-                <nav>
+                <nav className="navup">
                     <div className="nav-wrapper">
-                    <a href="#!" className="left"><img className="responsive-img" src={WhiteLogo}/></a>
+                    <a href="#!" className="left hide-on-med-and-down"><img className="responsive-img" src={WhiteLogo}/></a>
                     <ul className="hide-on-med-and-down">
                         <li className="center"><a href="#">Shop</a></li>
                         <li className="center"><a href="#">About Us</a></li>
@@ -29,8 +29,21 @@ class Navbar extends React.Component {
                     <a href="#!" className="brand-logo center"><img className="responsive-img" src={Logo}/></a>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
                     <ul className="hide-on-med-and-down right">
-                        <li><a href="#">Basket</a></li>
-                        <li><a href="#">Profile</a></li>
+                        <li className="center"><a href="#">Basket</a></li>
+                        <li className="center profile"><a href="#">Profile</a></li>
+                    </ul>
+                    </div>
+                </nav>
+                <nav className="navdown">
+                    <div className="nav-wrapper">
+                    <div className="searchbar white valign-wrapper">
+                        <div className="search-icon"><MaterialIcon icon="search"/></div>
+                        <input className="search-input" placeholder="Search..."></input>
+                    </div>
+                    <ul className="hide-on-med-and-down">
+                        <li className="center"><a href="#">Home</a></li>
+                        <li className="center"><a href="#">Discover Us</a></li>
+                        <li className="center"><a href="#">Articles</a></li>
                     </ul>
                     </div>
                 </nav>

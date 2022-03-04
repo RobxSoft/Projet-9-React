@@ -34,7 +34,77 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <div className="container-games row">
+                    <h2 className="flow-text">Popular Games</h2>
+                    <div className="send-game-container">
+                        <div className="col m12 l8">
+                            <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                            <div className="game-container">
+                                <h3>TITRE</h3>
+                                <p>0$</p>
+                            </div>
+                        </div>
+                        <div className="col m12 l8">
+                            <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                            <div className="game-container">
+                                <h3>TITRE</h3>
+                                <p>0$</p>
+                            </div>
+                        </div>
+                        <div className="col m12 l8">
+                            <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                            <div className="game-container">
+                                <h3>TITRE</h3>
+                                <p>0$</p>
+                            </div>
+                        </div>
+                        <div className="col m12 l8">
+                            <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                            <div className="game-container">
+                                <h3>TITRE</h3>
+                                <p>0$</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div className="container-games row">
+                    <h2 className="flow-text">Sales</h2>
+                    <div className="send-game-container">
+                        <div className="col m12 l8">
+                            <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                            <div className="game-container">
+                                <h3>TITRE</h3>
+                                <p>0$</p>
+                            </div>
+                        </div>
+                        <div className="col m12 l8">
+                            <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                            <div className="game-container">
+                                <h3>TITRE</h3>
+                                <p>0$</p>
+                            </div>
+                        </div>
+                        <div className="col m12 l8">
+                            <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                            <div className="game-container">
+                                <h3>TITRE</h3>
+                                <p>0$</p>
+                            </div>
+                        </div>
+                        <div className="col m12 l8">
+                            <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                            <div className="game-container">
+                                <h3>TITRE</h3>
+                                <p>0$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="featured-title container center">
+                    <h2 className="title">Featured Articles</h2>
+                </div>
+                <Footer />
             </React.Fragment>
         )
     }
