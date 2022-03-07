@@ -14,7 +14,7 @@ class ContainerArticles extends React.Component {
     render(){
         return (
             <div className="sales col m12 l8">
-                <div className="row sales-container">
+                <div className="row article-container">
                     <div className="col img s12 m12 l12">
                     </div>
                     <div className="col s12 m12 l12">
