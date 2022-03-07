@@ -353,7 +353,10 @@ h2{
   justify-content: space-between;
 }
 
-
+.game-container {
+  display: flex;
+  justify-content: space-between;
+}
 
 .container-games a {
   position: absolute;
