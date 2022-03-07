@@ -355,6 +355,7 @@ h2{
 
 .game-container {
   display: flex;
+  overflow-y:scroll;
   justify-content: space-between;
 }
 
