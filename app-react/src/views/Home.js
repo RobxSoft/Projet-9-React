@@ -7,7 +7,7 @@ import FeaturedGame from '../components/FeaturedGame';
 import WS_Background from '../img/worldseed_thumbnail.jpeg'
 import ContainerPopular from '../components/ContainerPopular';
 import ContainerSales from '../components/ContainerSales';
-
+git rm -r
 
 class Home extends React.Component {
     render(){
