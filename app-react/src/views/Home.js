@@ -11,6 +11,14 @@ import ContainerArticles from '../components/ContainerArticles';
 
 
 class Home extends React.Component {
+    constructor(props) {
+        super(props)
+        console.log(props);
+        this.state = {
+            Articles: props.Articles
+        }
+    }
+
     render(){
         return(
             <React.Fragment>

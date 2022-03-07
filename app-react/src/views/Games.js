@@ -13,7 +13,7 @@ class Games extends React.Component {
                 <div className="container-games row">
                     <h2 className="flow-text">Popular Games</h2>
                     <a class="waves-effect btn z-depth-0">SEE ALL</a>
-                    <div className="game-container">
+                    <div className="gamepages-container">
                         <ContainerPopular/>
                         <ContainerPopular/>
                         <ContainerPopular/>
