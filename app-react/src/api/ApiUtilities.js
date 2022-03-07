@@ -10,3 +10,5 @@ export const getArticle = async () => {
     const articles = await response.json();
     return articles;
 }
+
+export default getArticle;

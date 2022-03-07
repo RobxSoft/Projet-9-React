@@ -33,7 +33,7 @@ class App extends Component{
     return (
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home />} />
+          <Route exact path='/' element={<Home state={this.state}/>}  />
         </Routes>
       </Router>
     )
