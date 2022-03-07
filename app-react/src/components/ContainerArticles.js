@@ -21,7 +21,7 @@ class ContainerArticles extends React.Component {
                     <p>-25%</p>
                     </div>
                 </div>
-                {props.articles.data.map((article,i) =>{return <h3 key={i}>{article.title}</h3>})}
+                {/*props.articles.data.map((article,i) =>{return <h3 key={i}>{article.title}</h3>})*/}
                 <p>0$</p>
             </div>
         )

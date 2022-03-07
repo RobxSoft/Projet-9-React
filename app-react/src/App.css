@@ -378,7 +378,7 @@ h2{
   max-width: 35%;
 }
 
-.game-container, .sales-container{
+.game-container, .sales-container, .article-container {
   background: #262626;
   width: 300px;
   height: 30vh;
@@ -392,7 +392,13 @@ h2{
   margin-bottom: 50px;
 }
 
-.game-container .col, .sales-container .col {
+.article-container {
+  width: 600px;
+  height: 50vh;
+  margin-bottom: 100px;
+}
+
+.game-container .col, .sales-container .col, .article-container .col {
   padding: 0 !important;
 }
 

@@ -11,10 +11,10 @@ import ContainerArticles from '../components/ContainerArticles';
 
 
 class Home extends React.Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props)
-        this.state = { props.state }
-    }
+        this.state = { state }
+    }*/
 
     render(){
         return(
