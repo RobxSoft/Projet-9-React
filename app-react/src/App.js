@@ -6,6 +6,7 @@ import {
   Routes
 } from 'react-router-dom';
 import Home from './views/Home.js'
+import Games from './views/Games.js'
 import Page from './views/TestPage'
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -38,6 +39,7 @@ class App extends Component{
       <Router>
         <Routes>
           <Route exact path='/' element={<Home />} />
+          <Route exact path='/games' element={<Games />} />
         </Routes>
       </Router>
     )
