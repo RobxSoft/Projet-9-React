@@ -370,7 +370,7 @@ h2{
   max-width: 35%;
 }
 
-.game-container {
+.game-container, .sales-container{
   background: #262626;
   width: 300px;
   height: 30vh;
@@ -379,7 +379,12 @@ h2{
   position: relative;
 }
 
-.game-container .col {
+.sales-container {
+  height: 60vh;
+  margin-bottom: 50px;
+}
+
+.game-container .col, .sales-container .col {
   padding: 0 !important;
 }
 
@@ -390,20 +395,31 @@ h2{
   left: 5px;
 }
 
-.game-container .col p {
+.game-container .col p, .sales-container .col p {
   position: absolute;
   bottom: 0;
-  right: 20px;
+  right: 10px;
   margin-bottom: 5px;
 }
 
-.game-container .img {
-  background-image: url("img/worldseed_thumbnail.jpeg");
+.game-container .img, .sales-container .img {
+  background: url("img/elden_ring.jpg") center;
   background-size: cover;
   border-radius: 1vh 1vh 0 0;
   width: 300px;
-  height: 18vh;
+  height: 60%;
   padding: 0;
+}
+
+.sales-container .col p {
+  font-size: 20px;
+  background: #3171D8;
+  border-radius: 1vh;
+  padding: 0 5px 0 5px;
+}
+
+.sales-container .img {
+  height: 90% !important;
 }
 
 
@@ -418,4 +434,10 @@ h2{
   background-color: #343434;
   padding: 10px 10% 10px 10%;
   border-radius: 1vh;
+}
+
+.sales h3, .sales p {
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }

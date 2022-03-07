@@ -6,6 +6,8 @@ import FeaturedGame from '../components/FeaturedGame';
 
 import WS_Background from '../img/worldseed_thumbnail.jpeg'
 import ContainerPopular from '../components/ContainerPopular';
+import ContainerSales from '../components/ContainerSales';
+
 
 class Home extends React.Component {
     render(){
@@ -50,30 +52,10 @@ class Home extends React.Component {
                     <h2 className="flow-text">Sales</h2>
                     <a class="waves-effect btn z-depth-0">SEE ALL</a>
                     <div className="send-game-container">
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
+                        <ContainerSales/>
+                        <ContainerSales/>
+                        <ContainerSales/>
+                        <ContainerSales/>
                     </div>
                 </div>
                 <div className="featured-title container center">
