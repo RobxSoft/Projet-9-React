@@ -12,25 +12,21 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 import { Component } from 'react';
+import ApiUtilities from './api/ApiUtilities.js';
 
 class App extends Component{
   constructor(props){
     super(props);
-    this.state={
-      games:[]
-   }
+    this.state= {
+       articles:[]
+    }
   }
 
-  async componentDidMount(){
-    const response = await fetch('http://localhost:1337/', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type':'application/json'
-      }
-      }
-    )
-    
+  async componentDidMount () {
+    const articles = await ApiUtilities.getArticle();
+    this.setState({
+      articles: articles
+    })
   }
 
   render(){
