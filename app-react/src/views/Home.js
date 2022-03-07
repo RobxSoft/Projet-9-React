@@ -7,13 +7,14 @@ import FeaturedGame from '../components/FeaturedGame';
 import WS_Background from '../img/worldseed_thumbnail.jpeg'
 import ContainerPopular from '../components/ContainerPopular';
 import ContainerSales from '../components/ContainerSales';
+import ContainerArticles from '../components/ContainerArticles';
+
 
 class Home extends React.Component {
     render(){
         return(
             <React.Fragment>
                 <Navbar/>
-            
                 <div className="featured-shop row ">
                     <div className="image-container col s12 l8">
                         <div className="shadow-img">
@@ -92,62 +93,20 @@ class Home extends React.Component {
                     <h2 className="flow-text">Popular Articles</h2>
                     <a class="waves-effect btn z-depth-0">SEE ALL</a>
                     <div className="send-game-container">
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                            </div>
-                            <div classname="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
+                        <ContainerArticles />
+                        <ContainerArticles />
+                        <ContainerArticles />
+                        <ContainerArticles />
                     </div>
                 </div>
                 <div className="container-games row">
                     <h2 className="flow-text">Latest Articles</h2>
                     <a class="waves-effect btn z-depth-0">SEE ALL</a>
                     <div className="send-game-container">
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
-                        <div className="col m12 l8">
-                            <div className="game-container">
-                                <h3>TITRE</h3>
-                                <p>0$</p>
-                            </div>
-                        </div>
+                    <ContainerArticles />
+                    <ContainerArticles />
+                    <ContainerArticles />
+                    <ContainerArticles />
                     </div>
                 </div>
                 <Footer />
