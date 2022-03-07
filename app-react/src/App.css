@@ -28,7 +28,7 @@ h2{
 }
 
 
-.featured-shop{
+.featured-shop, .featured-article{
   margin-top: 10vh;
   margin-top: 5%;
   padding-inline: 10%;
@@ -47,7 +47,7 @@ h2{
   border-radius: 2vh;
 }
 
-.featured-shop .shadow-img img{
+.featured-shop .shadow-img img, .featured-article .simple-img img{
   width: 100%;
   position:relative;
   border-radius: 2vh;
@@ -65,7 +65,14 @@ h2{
   font-weight: normal !important;
 }
 
-.featured-shop p{
+.featured-article h3 {
+  padding-top: 2%;
+  margin: 0;
+  font-size: 30px;
+  font-weight: normal !important;
+}
+
+.featured-shop p {
   font-size: 20px;
   position: absolute;
   padding-left: 2%;
@@ -74,7 +81,12 @@ h2{
   bottom: 30%;
 }
 
-.featured-shop a{
+.featured-article p {
+  font-size: 20px;
+}
+
+
+.featured-shop a {
   position: absolute;
   background-color: white;
   color: #262626;
@@ -89,19 +101,28 @@ h2{
   max-width: 45%;
 }
 
+.featured-article a {
+  background-color: #3171D8;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 1vh;
+  height: auto;
+  text-align: center;
+  padding-inline: 4%;
+  padding-block: 1%;
+}
+
 @media only screen and (min-width: 1100px) {
   .featured-shop p{
     font-size: 18px;
     max-width: 60%;
   }
-}
-
-@media only screen and (max-width: 1100px) {
-  .featured-shop p{
-    font-size: 15px;
-    max-width: 60%;
+  .featured-article p {
+    font-size: 18px;
+    max-width: 80% !important;
   }
 }
+
 
 
 @media only screen and (max-width: 992px) {
@@ -161,6 +182,7 @@ h2{
 }
 
 .page-footer{
+  margin-top: 50px;
   background-color: #343434 !important;
 }
 
@@ -348,12 +370,58 @@ h2{
   max-width: 35%;
 }
 
-.game-container {
-  background-color: #3171D8;
+.game-container, .sales-container{
+  background: #262626;
   width: 300px;
-  height: 40vh;
-  margin-bottom: 20px;
+  height: 30vh;
+  border-radius: 1vh;
+  margin-right: 20px !important;
+  position: relative;
 }
+
+.sales-container {
+  height: 60vh;
+  margin-bottom: 50px;
+}
+
+.game-container .col, .sales-container .col {
+  padding: 0 !important;
+}
+
+.game-container .col h3 {
+  position: absolute;
+  font-size: 30px;
+  top: 15vh;
+  left: 5px;
+}
+
+.game-container .col p, .sales-container .col p {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  margin-bottom: 5px;
+}
+
+.game-container .img, .sales-container .img {
+  background: url("img/elden_ring.jpg") center;
+  background-size: cover;
+  border-radius: 1vh 1vh 0 0;
+  width: 300px;
+  height: 60%;
+  padding: 0;
+}
+
+.sales-container .col p {
+  font-size: 20px;
+  background: #3171D8;
+  border-radius: 1vh;
+  padding: 0 5px 0 5px;
+}
+
+.sales-container .img {
+  height: 90% !important;
+}
+
 
 .featured-title {
   margin-top: 50px !important;
@@ -366,4 +434,10 @@ h2{
   background-color: #343434;
   padding: 10px 10% 10px 10%;
   border-radius: 1vh;
+}
+
+.sales h3, .sales p {
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }

@@ -4,8 +4,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
-import WS_Background from '../img/worldseed_thumbnail.jpeg'
-
 class FeaturedGame extends React.Component {
     constructor(props) {
         super(props)
