@@ -5,11 +5,6 @@ import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 class ContainerPopular extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { selected: false }
-    }
-
     render(){
         return (
             <div className="col m12 l8">
@@ -17,8 +12,8 @@ class ContainerPopular extends React.Component {
                     <div className="col img s12 m12 l12">
                     </div>
                     <div className="col s12 m12 l12">
-                    <h3>TITRE</h3>
-                    <p>0$</p>
+                    <h3>title</h3>
+                    <p>00$</p>
                     </div>
                 </div>
             </div>

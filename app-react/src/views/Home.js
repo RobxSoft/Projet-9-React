@@ -13,9 +13,10 @@ import ContainerArticles from '../components/ContainerArticles';
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        console.log(props);
+        console.log(props.state);
         this.state = {
-            Articles: props.Articles
+            articles: props.state.articles,
+            loaded: props.state.loaded
         }
     }
 
@@ -47,7 +48,7 @@ class Home extends React.Component {
                 </div>
                 <div className="container-games row">
                     <h2 className="flow-text">Popular Games</h2>
-                    <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
                     <div className="send-game-container">
                         <ContainerPopular/>
                         <ContainerPopular/>
@@ -58,7 +59,7 @@ class Home extends React.Component {
                 </div>
                 <div className="container-games row">
                     <h2 className="flow-text">Sales</h2>
-                    <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
                     <div className="send-game-container">
                         <ContainerSales/>
                         <ContainerSales/>
@@ -99,22 +100,22 @@ class Home extends React.Component {
                 </div>
                 <div className="container-games row">
                     <h2 className="flow-text">Popular Articles</h2>
-                    <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
                     <div className="send-game-container">
-                        <ContainerArticles />
-                        <ContainerArticles />
-                        <ContainerArticles />
-                        <ContainerArticles />
+                        <ContainerArticles article={this.state.articles.data[0].attributes} />
+                        <ContainerArticles article={this.state.articles.data[0].attributes} />
+                        <ContainerArticles article={this.state.articles.data[0].attributes} />
+                        <ContainerArticles article={this.state.articles.data[0].attributes} />
                     </div>
                 </div>
                 <div className="container-games row">
                     <h2 className="flow-text">Latest Articles</h2>
-                    <a class="waves-effect btn z-depth-0">SEE ALL</a>
+                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
                     <div className="send-game-container">
-                    <ContainerArticles />
-                    <ContainerArticles />
-                    <ContainerArticles />
-                    <ContainerArticles />
+                    <ContainerArticles article={this.state.articles.data[0].attributes} />
+                    <ContainerArticles article={this.state.articles.data[0].attributes} />
+                    <ContainerArticles article={this.state.articles.data[0].attributes} />
+                    <ContainerArticles article={this.state.articles.data[0].attributes} />
                     </div>
                 </div>
                 <Footer />
