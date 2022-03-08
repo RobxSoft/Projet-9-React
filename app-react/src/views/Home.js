@@ -45,6 +45,7 @@ class Home extends React.Component {
                         <ContainerPopular/>
                         <ContainerPopular/>
                         <ContainerPopular/>
+                        <ContainerPopular/>
                     </div>
                     
                 </div>

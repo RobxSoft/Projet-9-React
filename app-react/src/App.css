@@ -353,7 +353,11 @@ h2{
   justify-content: space-between;
 }
 
-
+@media only screen and (max-width: 450px) {
+  .container-games h2{
+    font-size: 25px !important;
+  }
+}
 
 .container-games a {
   position: absolute;
@@ -378,17 +382,20 @@ h2{
   max-width: 35%;
 }
 
-.game-container, .sales-container, .article-container {
+.popular-container, .sales-container, .article-container {
   background: #262626;
-  width: 300px;
-  height: 30vh;
   border-radius: 1vh;
   margin-right: 20px !important;
-  position: relative;
+}
+
+.popular-container {
+  width: 250px;
+  height: 150px;
 }
 
 .sales-container {
-  height: 60vh;
+  width: 300px;
+  height: 400px;
   margin-bottom: 50px;
 }
 
@@ -398,25 +405,12 @@ h2{
   margin-bottom: 100px;
 }
 
-.game-container .col, .sales-container .col, .article-container .col {
-  padding: 0 !important;
+.popular-container h3 {
+  font-size: 15px;
+  margin-top: 5px;
 }
 
-.game-container .col h3 {
-  position: absolute;
-  font-size: 30px;
-  top: 15vh;
-  left: 5px;
-}
-
-.game-container .col p, .sales-container .col p {
-  position: absolute;
-  bottom: 0;
-  right: 10px;
-  margin-bottom: 5px;
-}
-
-.game-container .img, .sales-container .img {
+.popular-container .img, .sales-container .img {
   background: url("img/elden_ring.jpg") center;
   background-size: cover;
   border-radius: 1vh 1vh 0 0;

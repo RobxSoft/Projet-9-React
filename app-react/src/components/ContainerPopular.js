@@ -13,12 +13,12 @@ class ContainerPopular extends React.Component {
     render(){
         return (
             <div className="col m12 l8">
-                <div className="row game-container">
+                <div className="row popular-container">
                     <div className="col img s12 m12 l12">
                     </div>
                     <div className="col s12 m12 l12">
-                    <h3>TITRE</h3>
-                    <p>0$</p>
+                    <h3 className="left">TITRE DU JEU</h3>
+                    <p className="right">0$</p>
                     </div>
                 </div>
             </div>
