@@ -28,7 +28,7 @@ class Footer extends React.Component {
                                 <img className="responsive-img" src={logo} />
                                 <ul>
                                 <li className="is-footer color"><a href="#!">Home</a></li>
-                                <li className="is-footer color"><a href="#!">Discover</a></li>
+                                <li className="is-footer color"><a href="#!">Games</a></li>
                                 <li className="is-footer color"><a href="#!">Articles</a></li>
                                 </ul>
                                 <div className="social-network">

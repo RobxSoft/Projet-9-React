@@ -41,9 +41,9 @@ class Navbar extends React.Component {
                         <input className="search-input" placeholder="Search..."></input>
                     </div>
                     <ul className="hide-on-med-and-down">
-                        <li className="center"><a href="#">Home</a></li>
-                        <li className="center"><a href="#">Discover Us</a></li>
-                        <li className="center"><a href="#">Articles</a></li>
+                        <li className="center"><a href="http://localhost:3000/">Home</a></li>
+                        <li className="center"><a href="http://localhost:3000/games">Games</a></li>
+                        <li className="center"><a href="http://localhost:3000/gameinfo">Articles</a></li>
                     </ul>
                     </div>
                 </nav>

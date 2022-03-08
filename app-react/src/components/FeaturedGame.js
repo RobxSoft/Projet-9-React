@@ -12,8 +12,8 @@ class FeaturedGame extends React.Component {
 
     render(){
         return (
-            <div class="featured-game">
-                <div class="icon"></div>
+            <div className="featured-game">
+                <div className="icon"></div>
                 <h3 className="truncate">Arthur</h3>
             </div>
         )

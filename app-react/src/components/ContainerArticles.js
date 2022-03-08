@@ -4,25 +4,27 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 import App from '../App.js';
+import WS_Background from '../img/worldseed_thumbnail.jpeg';
 
 class ContainerArticles extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { selected: false }
+        this.state = {
+            article: props.article
+        }
+        console.log(props.article.title);
     }
 
     render(){
         return (
-            <div className="sales col m12 l8">
-                <div className="row article-container">
-                    <div className="col img s12 m12 l12">
-                    </div>
-                    <div className="col s12 m12 l12">
-                    <h3>TITRE</h3>
-                    </div>
+            <div className="article-container">
+                <img src={WS_Background }/>
+                <div>
+                    <h3>World Seed Finally Released!</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis porta lacus, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
+                    </p>
                 </div>
-                {/*props.articles.data.map((article,i) =>{return <h3 key={i}>{article.title}</h3>})*/}
-                <p>0$</p>
             </div>
         )
     }

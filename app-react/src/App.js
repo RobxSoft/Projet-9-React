@@ -7,11 +7,12 @@ import {
 } from 'react-router-dom';
 import Home from './views/Home.js'
 import Games from './views/Games.js'
+import GameInfo from './views/GameInfo.js'
 import Page from './views/TestPage'
+import Loader from './components/Loader';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
 import { Component } from 'react';
 import ApiUtilities from './api/ApiUtilities.js';
 
@@ -19,23 +20,36 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state= {
-       articles:[]
+       articles:[],
+       games: [],
+       loaded: false
     }
   }
 
   async componentDidMount () {
+    console.log("mount");
     const articles = await ApiUtilities.getArticle();
+    const games = await ApiUtilities.getGames();
+
     this.setState({
-      articles: articles
+      articles: articles,
+      games: games,
+      loaded: true
     })
+    console.log(this.state);
   }
 
   render(){
+    console.log(this.state.loaded);
+    if (this.state.loaded == false){
+        return <Loader/>
+    }
     return (
       <Router>
         <Routes>
           <Route exact path='/' element={<Home state={this.state}/>}  />
-          <Route exact path='/games' element={<Games />} />
+          <Route exact path='/games' element={<Games state={this.state}/>} />
+          <Route exact path='/gameinfo' element={<GameInfo state={this.state}/>} />
         </Routes>
       </Router>
     )
