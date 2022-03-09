@@ -36,3 +36,16 @@ module.exports.getCreator = async function(){
     const creators = await response.json();
     return creators;
 }
+
+module.exports.getCategories = async function(){
+    const response = await fetch('http://localhost:1337/api/categories?populate=*', {
+        method: 'GET', 
+        headers: {
+            'Accept': 'application/json', 
+            'Content-Type':'application/json'
+        }
+    }
+    )
+    const categories = await response.json();
+    return categories;
+}

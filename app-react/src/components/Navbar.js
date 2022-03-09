@@ -9,12 +9,31 @@ import Logo from '../img/Logo_Title.png';
 import WhiteLogo from '../img/White_Logo.png';
 
 class Navbar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            search: '',
+            callback: props.callback || null,
+        }
+    }
 
     componentDidMount(){
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems, {});
         });        
+    }
+
+    handleSearchChange(event){
+        let text = event.target.value
+        //changing state
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.search = text
+        this.setState(stateCopy)
+        
+        if (this.state.callback){
+            this.state.callback(text)
+        }
     }
 
     render(){
@@ -39,7 +58,7 @@ class Navbar extends React.Component {
                     <div className="nav-wrapper">
                     <div className="searchbar white valign-wrapper">
                         <div className="search-icon"><MaterialIcon icon="search"/></div>
-                        <input className="search-input" placeholder="Search..."></input>
+                        <input className="search-input" placeholder="Search..." value={this.state.search} onChange={(event) => this.handleSearchChange(event)}></input>
                     </div>
                     <ul className="hide-on-med-and-down">
                         <li className="center"><Link to="/">Home</Link></li>

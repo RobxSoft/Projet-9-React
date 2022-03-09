@@ -10,9 +10,6 @@ const LINK = "http://localhost:1337"
 class GameFrame extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            data: props.game
-        }
     }
 
     render(){

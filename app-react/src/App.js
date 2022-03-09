@@ -24,6 +24,7 @@ class App extends Component{
        articles: [],
        games: [],
        creators: [],
+       categories: [],
        loaded: false
     }
   }
@@ -33,11 +34,13 @@ class App extends Component{
     const articles = await ApiUtilities.getArticle();
     const games = await ApiUtilities.getGames();
     const creators = await ApiUtilities.getCreator();
+    const categories = await ApiUtilities.getCategories();
 
     this.setState({
       articles: articles,
       games: games,
       creators: creators,
+      categories: categories,
       loaded: true
     })
   }
