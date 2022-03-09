@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import GameFrame from '../components/GameFrame';
 import Checkbox from '../components/Checkbox';
 
+
 class Games extends React.Component {
     constructor(props) {
         super(props)
@@ -66,7 +67,6 @@ class Games extends React.Component {
                     delete showGames[key];
                 }
             }
-            //fruits.includes("Mango");
         }
         return(
             <React.Fragment>
