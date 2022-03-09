@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import GameFrame from '../components/GameFrame';
 import Checkbox from '../components/Checkbox';
 
+
 class Games extends React.Component {
     constructor(props) {
         super(props)
