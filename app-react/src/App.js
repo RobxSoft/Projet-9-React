@@ -38,11 +38,9 @@ class App extends Component{
       categories: categories,
       loaded: true
     })
-    console.log(this.state);
   }
 
   render(){
-    console.log(this.state.loaded);
     if (this.state.loaded == false){
         return <Loader/>
     }
@@ -50,7 +48,7 @@ class App extends Component{
       <Router>
         <Routes>
           <Route exact path='/' element={<Home state={this.state}/>}  />
-          <Route exact path='/games' element={<Games state={this.state}/>} />
+          <Route exact path='/games/:id' element={<Games state={this.state}/>} />
         </Routes>
       </Router>
     )

@@ -9,7 +9,6 @@ import ContainerPopular from '../components/ContainerPopular';
 import ContainerSales from '../components/ContainerSales';
 import ContainerArticles from '../components/ContainerArticles';
 
-
 class Home extends React.Component {
     constructor(props) {
         super(props)
