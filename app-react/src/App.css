@@ -347,13 +347,21 @@ h2{
   padding: 2%;
 }
 
+.gameinfo-container {
+  margin-left: 10% !important;
+  margin-right: 10% !important;
+}
+
 .send-game-container {
   display: flex;
   overflow-x:scroll;
-  justify-content: space-between;
 }
 
-
+@media only screen and (max-width: 450px) {
+  .container-games h2{
+    font-size: 25px !important;
+  }
+}
 
 .container-games a {
   position: absolute;
@@ -375,66 +383,91 @@ h2{
 .container-games p{
   font-size: 20px;
   padding-left: 2%;
-  max-width: 35%;
 }
 
-.game-container, .sales-container, .article-container {
+.games-container, .popular-container, .article-container, .creator-container {
   background: #262626;
-  width: 300px;
-  height: 30vh;
   border-radius: 1vh;
-  margin-right: 20px !important;
-  position: relative;
+  margin-bottom: 40px !important;
+  padding: 0 !important;
+  height: 300px !important;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 190px;
 }
 
-.sales-container {
-  height: 60vh;
-  margin-bottom: 50px;
+.popular-container {
+  width: 250px !important;
+  height: 200px !important;
 }
 
 .article-container {
-  width: 600px;
-  height: 50vh;
-  margin-bottom: 100px;
+  width: 500px !important;
+  height: 400px !important;
 }
 
-.game-container .col, .sales-container .col, .article-container .col {
+.games-container img, .popular-container img, .article-container img {
+  width: 190px;
+  height: 250px;
+  padding: 0;
+  border-radius: 1vh 1vh 0 0; 
+}
+
+.popular-container img {
+  width: 250px;
+  height: 150px;
+}
+
+.article-container img {
+  width: 500px;
+  height: 275px;
+}
+
+.games-container .plus {
+  margin-top: 50px;
+}
+
+.games-container p, .popular-container p{
+  font-size: 15px;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.article-container p {
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.games-container h3, .popular-container h3, .article-container h3 {
+  margin-left: 2% !important;
+  font-size: 12px !important;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.article-container h3 {
+  font-size: 20px !important;
+}
+
+
+
+.games-container .row .col, .popular-container .row .col, .article-container .row .col {
+ margin-top: 10px;
+ margin-bottom: -30px;
+ font-size: 12px !important;
+}
+
+.sales {
   padding: 0 !important;
 }
 
-.game-container .col h3 {
-  position: absolute;
-  font-size: 30px;
-  top: 15vh;
-  left: 5px;
-}
-
-.game-container .col p, .sales-container .col p {
-  position: absolute;
-  bottom: 0;
-  right: 10px;
-  margin-bottom: 5px;
-}
-
-.game-container .img, .sales-container .img {
-  background-size: cover;
-  border-radius: 1vh 1vh 0 0;
-  width: 300px;
-  height: 60%;
-  padding: 0;
-}
-
-.sales-container .col p {
-  font-size: 20px;
+.sales p {
   background: #3171D8;
   border-radius: 1vh;
   padding: 0 5px 0 5px;
+  margin-top: 5px;
+  margin-right: 10px;
 }
-
-.sales-container .img {
-  height: 90% !important;
-}
-
 
 .featured-title {
   margin-top: 50px !important;
@@ -449,8 +482,104 @@ h2{
   border-radius: 1vh;
 }
 
-.sales h3, .sales p {
+.right-part {
+  text-align: justify;
+}
+
+.right-part img {
+  width: 100%;
+  border-radius: 1vh;
+}
+
+.right-part .row p, .gameinfo-container p {
+  color: #707070;
+}
+
+.right-part .type {
+  border-right: 1px solid #707070;
+}
+
+.right-part .row a, .gameinfo-container a {
+  color: #fff;
+  margin-right: 10px;
+  text-decoration: underline;
+}
+
+.gameinfo-container .purchase, .gameinfo-container .add-basket {
+  text-decoration: none;
+}
+
+.right-part .row {
+  margin-bottom: 50px;
+}
+
+.gameinfo-container h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.content {
+  color: #fff !important;
+  text-align: justify !important;
+}
+
+.left-part {
+  position: sticky;
+  top: 100px;
+}
+
+.left-part img {
+  width: 100%;
+  border-radius: 1vh;
+}
+
+.left-part .purchase{
+  background-color: #3171D8;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 1vh;
+  width: 100%;
+}
+
+.left-part .add-basket {
+  margin-top: 15px;
+  background-color: #262626;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid white;
+  border-radius: 1vh;
+  width: 100%;
+}
+
+.left-part .row .right {
+  border-bottom: 1px solid #707070;
+  text-align: right;
+}
+
+.left-part .row .left {
+  border-bottom: 1px solid #707070;
+  color: #707070;
+}
+
+.creator-container p {
+  padding-left: 0px !important;
+}
+
+.creator-container .col h3 {
+  font-size: 40px;
+}
+
+.creator-container .col p {
   font-size: 15px;
-  margin-top: 0;
-  margin-bottom: 5px;
+}
+
+.check-box {
+  position: sticky;
+  top: 25%;
+  width: 50px !important;
+}
+
+.link {
+  position: static !important;
 }

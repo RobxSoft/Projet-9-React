@@ -3,25 +3,21 @@ import React, {Component} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import ER_Image from '../img/elden_ring.jpg';
 
 class ContainerSales extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { selected: false }
-    }
 
     render(){
         return (
-            <div className="sales col m12 l8">
-                <div className="row sales-container">
-                    <div className="col img s12 m12 l12">
-                    </div>
-                    <div className="col s12 m12 l12">
-                    <p>-25%</p>
-                    </div>
+            <div className="games-container">
+                <div className="sales">
+                    <img src={ER_Image} />
+                    <p className="right">-25%</p>
                 </div>
-                <h3>Elden Ring</h3>
-                <p>0$</p>
+                <div className="row plus s12 m12 l12">
+                    <h3 className="col s6 m6 l6 left">Elden Ring</h3>
+                    <p className="col s6 m6 l6 right">0$</p>
+                </div>
             </div>
         )
     }

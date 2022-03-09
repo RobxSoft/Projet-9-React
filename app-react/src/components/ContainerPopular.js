@@ -3,18 +3,16 @@ import React, {Component} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import ER_Image from '../img/elden_ring.jpg';
 
 class ContainerPopular extends React.Component {
     render(){
         return (
-            <div className="col m12 l8">
-                <div className="row game-container">
-                    <div className="col img s12 m12 l12">
-                    </div>
-                    <div className="col s12 m12 l12">
-                    <h3>title</h3>
-                    <p>00$</p>
-                    </div>
+            <div className="popular-container">
+                <img src={ER_Image}/>
+                <div className="row">
+                    <h3 className="left col s6 m6 l6">Elden Ring</h3>
+                    <p className="right col s6 m6 l6">0$</p>
                 </div>
             </div>
         )

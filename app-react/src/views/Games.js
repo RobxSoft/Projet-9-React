@@ -11,7 +11,6 @@ import Checkbox from '../components/Checkbox';
 class Games extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
         this.state = {
             search: '',
             filters: {
@@ -92,12 +91,8 @@ class Games extends React.Component {
             }
         }
         return(
-            <React.Fragment>
+            <>
                 <Navbar callback={this.handleChange}/>
-
-                <form action="#">
-                    {this.props.state.categories && this.props.state.categories.data.map((category,i) => <Checkbox key={i} callback={this.handleCategory} data={category}/>)}
-                </form>
 
                 <div className="row white">
                     <div className="input-field col s6">
@@ -110,14 +105,22 @@ class Games extends React.Component {
                     </div>
                 </div>
 
-                <div className="container-games row">
-                    <h2 className="flow-text">Games</h2>
-                    <div className="gamepages-container">
-                        {this.props.state.games && showGames.map((game,i) => <GameFrame key={i} game={game}/>)}
+               
+                
+                <div className="row">
+                    <form className="check-box col s12 m5 l5" action="#">
+                        {this.props.state.categories && this.props.state.categories.data.map((category,i) => <Checkbox key={i} callback={this.handleCategory} data={category}/>)}
+                    </form>
+                    <div className="container-games row s12 m7 l7">
+                        <h2 className="flow-text">Games</h2>
+                        <div className="gamepages-container">
+                            {this.props.state.games && showGames.map((game,i) => <GameFrame key={i} game={game}/>)}
+                        </div>
                     </div>
                 </div>
+                
                 <Footer />
-            </React.Fragment>
+            </>
         )
     }
 }
