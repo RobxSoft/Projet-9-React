@@ -58,7 +58,7 @@ class App extends Component{
           <Route exact path='/games' element={<Games state={this.state}/>} />
           <Route exact path='/articles' element={<Articles state={this.state}/>} />
           <Route exact path='/gameinfo' element={<GameInfo state={this.state}/>} />
-          <Route exact path='/articleinfo' element={<ArticleInfo state={this.state}/>} />
+          <Route exact path='/articleinfo/:id' element={<ArticleInfo state={this.state}/>} />
         </Routes>
       </Router>
     )

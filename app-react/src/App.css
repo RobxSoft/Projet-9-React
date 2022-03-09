@@ -573,3 +573,13 @@ h2{
 .creator-container .col p {
   font-size: 15px;
 }
+
+.check-box {
+  position: sticky;
+  top: 25%;
+  width: 50px !important;
+}
+
+.link {
+  position: static !important;
+}

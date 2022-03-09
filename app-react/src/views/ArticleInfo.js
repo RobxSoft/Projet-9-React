@@ -8,15 +8,16 @@ import ContainerArticles from '../components/ContainerArticles';
 import GameFrame from '../components/GameFrame.js';
 
 
+
 class ArticleInfo extends React.Component {
     constructor(props) {
         super(props)
-        console.log(props.state);
         this.state = {
             articles: props.state.articles,
-            loaded: props.state.loaded
-        }
+            loaded: props.state.loaded,
+        }     
     }
+
 
     render(){
         return(     

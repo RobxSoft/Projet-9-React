@@ -13,15 +13,13 @@ class GameFrame extends React.Component {
     }
 
     render(){
-        console.log(this.props.key);
+        console.log(this.props.game.attributes.title);
         return (
             <div className="games-container col">
-                <img src={`${LINK+this.state.data.attributes.Icon.data.attributes.url}`}/>
+                <img src={`${LINK+this.props.game.attributes.icon.data.attributes.url}`}/>
                 <div className="row valign-center">
-                    <Link to={'/gameinfo/'+[this.props.key]}>page</Link>
-                    
-                    <h3 className="left col s6 m6 l6">{this.state.data.attributes.Title}</h3>
-                    <p className="right col s6 m6 l6">{this.state.data.attributes.Price}$</p>
+                    <h3 className="left col s6 m6 l6">{this.props.game.attributes.title}</h3>
+                    <p className="right col s6 m6 l6">{this.props.game.attributes.price}$</p>
                 </div>
             </div>
         )
