@@ -23,8 +23,8 @@ class Navbar extends React.Component {
                     <div className="nav-wrapper">
                     <a href="#!" className="left hide-on-med-and-down"><img className="responsive-img" src={WhiteLogo}/></a>
                     <ul className="hide-on-med-and-down">
-                        <li className="center"><a href="#">Shop</a></li>
-                        <li className="center"><a href="#">About Us</a></li>
+                        <li className="center"><a href="http://localhost:3000/">Shop</a></li>
+                        <li className="center"><a href="http://localhost:3000/about-us">About Us</a></li>
                     </ul>
                     <a href="#!" className="brand-logo center"><img className="responsive-img" src={Logo}/></a>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
@@ -43,7 +43,7 @@ class Navbar extends React.Component {
                     <ul className="hide-on-med-and-down">
                         <li className="center"><a href="http://localhost:3000/">Home</a></li>
                         <li className="center"><a href="http://localhost:3000/games">Games</a></li>
-                        <li className="center"><a href="http://localhost:3000/gameinfo">Articles</a></li>
+                        <li className="center"><a href="http://localhost:3000/articles">Articles</a></li>
                     </ul>
                     </div>
                 </nav>

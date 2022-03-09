@@ -385,7 +385,7 @@ h2{
   padding-left: 2%;
 }
 
-.games-container, .popular-container, .article-container {
+.games-container, .popular-container, .article-container, .creator-container {
   background: #262626;
   border-radius: 1vh;
   margin-bottom: 40px !important;
@@ -482,9 +482,31 @@ h2{
   border-radius: 1vh;
 }
 
+.right-part {
+  text-align: justify;
+}
+
 .right-part img {
   width: 100%;
   border-radius: 1vh;
+}
+
+.right-part .row p {
+  color: #707070;
+}
+
+.right-part .type {
+  border-right: 1px solid #707070;
+}
+
+.right-part .row a {
+  color: #fff;
+  margin-right: 10px;
+  text-decoration: underline;
+}
+
+.right-part .row {
+  margin-bottom: 50px;
 }
 
 .gameinfo-container h1 {
@@ -511,7 +533,7 @@ h2{
   width: 100%;
 }
 
-.left-part .add-basket{
+.left-part .add-basket {
   margin-top: 15px;
   background-color: #262626;
   text-transform: uppercase;
@@ -529,4 +551,17 @@ h2{
 .left-part .row .left {
   border-bottom: 1px solid #707070;
   color: #707070;
+}
+
+.creator-container img {
+  width: 350px;
+  height: 250px;
+}
+
+.creator-container .col h3 {
+  font-size: 40px;
+}
+
+.creator-container .col p {
+  font-size: 15px;
 }

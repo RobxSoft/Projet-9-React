@@ -1,5 +1,5 @@
 module.exports.getArticle = async function(){
-    const response = await fetch('http://localhost:1337/api/articles', {
+    const response = await fetch('http://localhost:1337/api/articles?populate=*', {
         method: 'GET', 
         headers: {
             'Accept': 'application/json', 
@@ -8,7 +8,6 @@ module.exports.getArticle = async function(){
     }
     )
     const articles = await response.json();
-    console.log(articles);
     return articles;
 }
 
@@ -23,4 +22,17 @@ module.exports.getGames = async function(){
     )
     const games = await response.json();
     return games;
+}
+
+module.exports.getCreator = async function(){
+    const response = await fetch('http://localhost:1337/api/creators?populate=*', {
+        method: 'GET', 
+        headers: {
+            'Accept': 'application/json', 
+            'Content-Type':'application/json'
+        }
+    }
+    )
+    const creators = await response.json();
+    return creators;
 }

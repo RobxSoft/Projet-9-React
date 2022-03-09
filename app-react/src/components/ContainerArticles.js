@@ -12,7 +12,6 @@ class ContainerArticles extends React.Component {
         this.state = {
             article: props.article
         }
-        console.log(props.article.title);
     }
 
     render(){

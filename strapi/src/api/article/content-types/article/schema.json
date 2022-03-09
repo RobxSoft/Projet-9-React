@@ -18,9 +18,9 @@
     "price": {
       "type": "string"
     },
-    "image": {
+    "icon": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images",
@@ -41,6 +41,16 @@
     "autor_note": {
       "max": 20,
       "type": "integer"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

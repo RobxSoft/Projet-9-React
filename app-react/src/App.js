@@ -8,11 +8,11 @@ import {
 import Home from './views/Home.js'
 import Games from './views/Games.js'
 import GameInfo from './views/GameInfo.js'
-import Page from './views/TestPage'
+import Articles from './views/Articles.js'
+import AboutUs from './views/AboutUs.js'
 import Loader from './components/Loader';
 
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
 import { Component } from 'react';
 import ApiUtilities from './api/ApiUtilities.js';
 
@@ -20,8 +20,9 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state= {
-       articles:[],
+       articles: [],
        games: [],
+       creators: [],
        loaded: false
     }
   }
@@ -30,13 +31,14 @@ class App extends Component{
     console.log("mount");
     const articles = await ApiUtilities.getArticle();
     const games = await ApiUtilities.getGames();
+    const creators = await ApiUtilities.getCreator();
 
     this.setState({
       articles: articles,
       games: games,
+      creators: creators,
       loaded: true
     })
-    console.log(this.state);
   }
 
   render(){
@@ -48,7 +50,9 @@ class App extends Component{
       <Router>
         <Routes>
           <Route exact path='/' element={<Home state={this.state}/>}  />
+          <Route exact path='/about-us' element={<AboutUs state={this.state}/>} />
           <Route exact path='/games' element={<Games state={this.state}/>} />
+          <Route exact path='/articles' element={<Articles state={this.state}/>} />
           <Route exact path='/gameinfo' element={<GameInfo state={this.state}/>} />
         </Routes>
       </Router>

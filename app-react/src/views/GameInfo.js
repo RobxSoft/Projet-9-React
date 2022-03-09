@@ -16,7 +16,7 @@ class GameInfo extends React.Component {
             loaded: props.state.loaded
         }
     }
-    
+
     render(){
         return(
             <React.Fragment>
@@ -30,13 +30,24 @@ class GameInfo extends React.Component {
                                 Lorem ipsum dolor sit amet, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
                             </h2>
                             <div className="row">
-                                <div className="col s6 m6 l6">
+                                <div className="col type s6 m6 l6">
                                     <p>Type</p>
-                                    <p>Action, Adventure, Horror, Roleplay, Survival</p>
+                                    <div>
+                                        <a href="#">Action</a>
+                                        <a href="#">Adventure</a>
+                                        <a href="#">Horror</a>
+                                        <a href="#">Roleplay</a>
+                                        <a href="#">Survival</a>
+                                    </div>
                                 </div>
                                 <div className="col s6 m6 l6">
                                     <p>Specifications</p>
-                                    <p>Support controller, Cooperation, Multiplayer, Solo</p>
+                                    <div>
+                                        <a href="#">Support controller</a>
+                                        <a href="#">Cooperation</a>
+                                        <a href="#">Multiplayer</a>
+                                        <a href="#">Solo</a>
+                                    </div>
                                 </div>
                             </div>
                             <p>
