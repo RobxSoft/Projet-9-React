@@ -8,6 +8,7 @@ import {
 import Home from './views/Home.js'
 import Games from './views/Games.js'
 import GameInfo from './views/GameInfo.js'
+import ArticleInfo from './views/ArticleInfo.js'
 import Articles from './views/Articles.js'
 import AboutUs from './views/AboutUs.js'
 import Loader from './components/Loader';
@@ -54,6 +55,7 @@ class App extends Component{
           <Route exact path='/games' element={<Games state={this.state}/>} />
           <Route exact path='/articles' element={<Articles state={this.state}/>} />
           <Route exact path='/gameinfo' element={<GameInfo state={this.state}/>} />
+          <Route exact path='/articleinfo' element={<ArticleInfo state={this.state}/>} />
         </Routes>
       </Router>
     )

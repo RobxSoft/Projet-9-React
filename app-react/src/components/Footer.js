@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import 'materialize-css/dist/css/materialize.min.css';
+import {Link} from 'react-router-dom';
 
 import logo from '../img/Logo_Title.png';
 import InstaLogo from '../img/instagram.png';
@@ -27,9 +28,9 @@ class Footer extends React.Component {
                             <div className="col l4 s12">
                                 <img className="responsive-img" src={logo} />
                                 <ul>
-                                <li className="is-footer color"><a href="#!">Home</a></li>
-                                <li className="is-footer color"><a href="#!">Games</a></li>
-                                <li className="is-footer color"><a href="#!">Articles</a></li>
+                                <li className="is-footer color"><Link to="/">Home</Link></li>
+                                <li className="is-footer color"><Link to="/games">Games</Link></li>
+                                <li className="is-footer color"><Link to="/articles">Articles</Link></li>
                                 </ul>
                                 <div className="social-network">
                                     <a href="!#"><img src={InstaLogo}/></a>

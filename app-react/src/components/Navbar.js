@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import {Link} from 'react-router-dom';
 
 import Logo from '../img/Logo_Title.png';
 import WhiteLogo from '../img/White_Logo.png';
@@ -21,12 +22,12 @@ class Navbar extends React.Component {
             <React.Fragment>
                 <nav className="navup">
                     <div className="nav-wrapper">
-                    <a href="#!" className="left hide-on-med-and-down"><img className="responsive-img" src={WhiteLogo}/></a>
+                    <Link className="left hide-on-med-and-down" to="/"><img className="responsive-img" src={WhiteLogo}/></Link>
                     <ul className="hide-on-med-and-down">
-                        <li className="center"><a href="http://localhost:3000/">Shop</a></li>
-                        <li className="center"><a href="http://localhost:3000/about-us">About Us</a></li>
+                        <li className="center"><Link to="/">Shop</Link></li>
+                        <li className="center"><Link to="/about-us">About Us</Link></li>
                     </ul>
-                    <a href="#!" className="brand-logo center"><img className="responsive-img" src={Logo}/></a>
+                    <Link className="brand-logo center" to="/"><img className="responsive-img" src={Logo}/></Link>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
                     <ul className="hide-on-med-and-down right">
                         <li className="center"><a href="#">Basket</a></li>
@@ -41,9 +42,9 @@ class Navbar extends React.Component {
                         <input className="search-input" placeholder="Search..."></input>
                     </div>
                     <ul className="hide-on-med-and-down">
-                        <li className="center"><a href="http://localhost:3000/">Home</a></li>
-                        <li className="center"><a href="http://localhost:3000/games">Games</a></li>
-                        <li className="center"><a href="http://localhost:3000/articles">Articles</a></li>
+                        <li className="center"><Link to="/">Home</Link></li>
+                        <li className="center"><Link to="/games">Games</Link></li>
+                        <li className="center"><Link to="/articles">Articles</Link></li>
                     </ul>
                     </div>
                 </nav>

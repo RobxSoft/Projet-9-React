@@ -16,11 +16,11 @@ class CreatorFrame extends React.Component {
 
     render(){
         return (
-            <div className="creator-container col s12 m12 l12">
-                <div className="col s12 m5 l5">
-                    <img src={`${LINK+this.state.data.attributes.icon.data.attributes.url}`}/>
+            <div class="creator-container col s12 m12 l12 z-depth-3">
+                <div class="col s12 m4 l4 center">
+                    <img className="responsive-img" src={`${LINK+this.state.data.attributes.icon.data.attributes.url}`}/>
                 </div>
-                <div className="col s12 m7 l7">
+                <div class="col s12 m8 l8">
                     <h3>{this.state.data.attributes.name}</h3>
                     <p>{this.state.data.attributes.description}$</p>
                 </div>
