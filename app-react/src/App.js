@@ -21,6 +21,7 @@ class App extends Component{
     this.state= {
        articles:[],
        games: [],
+       categories: [],
        loaded: false
     }
   }
@@ -29,10 +30,12 @@ class App extends Component{
     console.log("mount");
     const articles = await ApiUtilities.getArticle();
     const games = await ApiUtilities.getGames();
+    const categories = await ApiUtilities.getCategories();
 
     this.setState({
       articles: articles,
       games: games,
+      categories: categories,
       loaded: true
     })
     console.log(this.state);

@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "text"
     },
-    "Images": {
+    "images": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -29,7 +29,7 @@
         "audios"
       ]
     },
-    "Icon": {
+    "icon": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -40,19 +40,24 @@
         "audios"
       ]
     },
-    "PublishDate": {
+    "publishDate": {
       "type": "date"
     },
-    "Price": {
+    "price": {
       "type": "decimal"
     },
-    "Sales": {
+    "sales": {
       "type": "integer",
       "min": 0
     },
-    "Rating": {
+    "rating": {
       "type": "integer",
       "max": 20
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categorie.categorie"
     }
   }
 }

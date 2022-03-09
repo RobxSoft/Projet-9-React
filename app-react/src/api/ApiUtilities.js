@@ -24,3 +24,16 @@ module.exports.getGames = async function(){
     const games = await response.json();
     return games;
 }
+
+module.exports.getCategories = async function(){
+    const response = await fetch('http://localhost:1337/api/categories?populate=*', {
+        method: 'GET', 
+        headers: {
+            'Accept': 'application/json', 
+            'Content-Type':'application/json'
+        }
+    }
+    )
+    const categories = await response.json();
+    return categories;
+}
