@@ -66,7 +66,6 @@ class Games extends React.Component {
                     delete showGames[key];
                 }
             }
-            //fruits.includes("Mango");
         }
         return(
             <React.Fragment>
