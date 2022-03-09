@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import WS_Background from '../img/worldseed_thumbnail.jpeg';
 import Logo from '../img/Logo_Title.png';
-import ContainerArticles from '../components/ContainerArticles';
 import Loader from '../components/Loader';
+
+const LINK = "http://localhost:1337";
 
 
 class GameInfo extends React.Component {
@@ -24,6 +24,7 @@ class GameInfo extends React.Component {
     }
 
     render(){
+        console.log(this.state);
         if (this.state.loaded == false){
             return <Loader />
         }
@@ -34,10 +35,8 @@ class GameInfo extends React.Component {
                     <div className="row">
                     <h1>{this.state.game.attributes.title}</h1>
                         <div className="col right-part s12 m8 l8">
-                            <img src={WS_Background }/>
-                            <h2>
-                                Lorem ipsum dolor sit amet, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
-                            </h2>
+                            <img src={LINK+this.state.game.attributes.images.data[0].attributes.url}/>
+                            <h2>{this.state.game.attributes.main_description}</h2>
                             <div className="row">
                                 <div className="col type s6 m6 l6">
                                     <p>Type</p>
@@ -59,32 +58,33 @@ class GameInfo extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
+                            <p>{this.state.game.attributes.description}</p>
                         </div>
                         <div className="col left-part s12 m4 l4">
-                            <img src={Logo} />
+                            <div className="center-align">
+                                <img className="" src={LINK+this.state.game.attributes.icon.data.attributes.url} />
+                            </div>
+                            
                             <div className="container">
-                                <p>00$</p>
+                                <p>{this.state.game.attributes.price}$</p>
                                 <div><a className="purchase waves-effect waves-light btn-large ">PURCHASE</a></div>
                                 <div><a className="add-basket waves-effect waves-light btn-large">ADD TO BASKET</a></div>
                                 <div className="row">
                                     <div className="col s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Developper</p></div>
-                                        <div className="col right s6 m6 l6"><p>insert</p></div>
+                                        <div className="col right s6 m6 l6"><p>{this.state.game.attributes.developer}</p></div>
                                     </div>
                                     <div className="col s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Editor</p></div>
-                                        <div className="col right s6 m6 l6"><p>insert</p></div>
+                                        <div className="col right s6 m6 l6"><p>{this.state.game.attributes.editor}</p></div>
                                     </div>
                                     <div className="col s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Release date</p></div>
-                                        <div className="col right s6 m6 l6"><p>insert</p></div>
+                                        <div className="col right s6 m6 l6"><p>{this.state.game.attributes.publishDate}</p></div>
                                     </div>
                                     <div className="col s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Platform</p></div>
-                                        <div className="col right s6 m6 l6"><p>insert</p></div>
+                                        <div className="col right s6 m6 l6"><p>{this.state.game.attributes.platform}</p></div>
                                     </div>
                                 </div>
                             </div>

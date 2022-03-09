@@ -58,6 +58,18 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::categorie.categorie"
+    },
+    "main_description": {
+      "type": "text"
+    },
+    "developer": {
+      "type": "string"
+    },
+    "editor": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
     }
   }
 }

@@ -14,12 +14,13 @@ class ArticleFrame extends React.Component {
 
     render(){
         return (
+            <Link className="link" to={`/articleinfo/${this.props.article.id}`}>
             <div className="article-container col s12 m6 l6">
                 <img src={`${LINK+this.props.article.attributes.icon.data.attributes.url}`}/>
                 <h3>{this.props.article.attributes.title}</h3>
                 <p>{this.props.article.attributes.main_text}$</p>
-                <Link className="link" to={`/articleinfo/${this.props.article.id}`}>more info</Link>
             </div>
+            </Link>
         )
     }
 }

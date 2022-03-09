@@ -30,7 +30,7 @@ class Articles extends React.Component {
         console.log(this.props);
 
         return(
-            <React.Fragment>
+            <>
                 <Navbar callback={this.handleChange}/>
                 <div className="container-games">
                     <h2 className="flow-text">Articles</h2>
@@ -39,7 +39,7 @@ class Articles extends React.Component {
                     </div>
                 </div>
                 <Footer />
-            </React.Fragment>
+            </>
         )
     }
 }

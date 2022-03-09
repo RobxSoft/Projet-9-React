@@ -3,9 +3,11 @@ import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import WS_Background from '../img/worldseed_thumbnail.jpeg';
-import Logo from '../img/Logo_Title.png';
 import ContainerArticles from '../components/ContainerArticles';
-import GameFrame from '../components/GameFrame.js';
+import Loader from '../components/Loader';
+
+
+const LINK = "http://localhost:1337"
 
 
 
@@ -14,29 +16,30 @@ class ArticleInfo extends React.Component {
         super(props)
         this.state = {
             article: null,
-            loaded: props.state.loaded,
+            loaded: false
         }     
     }
 
-    componentWillMount(){
+    componentDidMount(){
         const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
-        const article = this.props.articles.data.find(article=>article.id===id)
-        this.setState({article:article})
+        const article = this.props.state.articles.data.find(article=>article.id===parseInt(id))
+        this.setState({article: article, loaded: true})
     }
 
 
     render(){
-
+        console.log(this.state);
+        if (this.state.loaded == false){
+            return <Loader />
+        }
         return(     
             <React.Fragment>
                 <Navbar/>
                 <div className="gameinfo-container center white-text">
                     <div className="container">
-                        <h1>{this.state.article.attributes.name}</h1>
-                        <img src={WS_Background }/>
-                        <h2 className="left-align">
-                            Lorem ipsum dolor sit amet, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
-                        </h2>
+                        <h1>{this.state.article.attributes.title}</h1>
+                        <img src={LINK+this.state.article.attributes.icon.data.attributes.url}/>
+                        <h2 className="left-align">{this.state.article.attributes.main_text}</h2>
                         <div className="row">
                             <div className="col type s6 m6 l6">
                                 <p>Type</p>
@@ -58,11 +61,9 @@ class ArticleInfo extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <p className="left-align content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p>Article wrote by DANIELL</p>
-                        <p>Posted on 20/10/2021</p>
+                        <p className="left-align content">{this.state.article.attributes.text}</p>
+                        <p>Article wrote by {this.state.article.attributes.author}</p>
+                        <p>Posted on {this.state.article.attributes.publish}</p>
                     </div>
                 </div>
 
@@ -71,10 +72,7 @@ class ArticleInfo extends React.Component {
                         <h2 className="flow-text">Dedicated Articles</h2>
                         <a className="waves-effect btn z-depth-0">SEE ALL</a>
                         <div className="send-game-container">
-                            <ContainerArticles article={this.state.articles.data[0].attributes} />
-                            <ContainerArticles article={this.state.articles.data[0].attributes} />
-                            <ContainerArticles article={this.state.articles.data[0].attributes} />
-                            <ContainerArticles article={this.state.articles.data[0].attributes} />
+                            
                         </div>
                 </div>
                 <Footer />

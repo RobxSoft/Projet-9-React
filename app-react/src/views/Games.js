@@ -94,29 +94,24 @@ class Games extends React.Component {
             <>
                 <Navbar callback={this.handleChange}/>
 
-                <div className="row white">
+                <div className="row filters">
                     <div className="input-field col s6">
-                        <input value={this.state.filters.prices.min} placeholder="min" id="first_name" type="text" className="validate" onChange={(event) => this.handlePriceChange('min', event)}/>
+                        <input value={this.state.filters.prices.min} placeholder="min" id="first_name" type="text" className="validate white-text" onChange={(event) => this.handlePriceChange('min', event)}/>
                         <label className="active" htmlFor="first_name">Minimum Price</label>
                     </div>
                     <div className="input-field col s6">
-                        <input value={this.state.filters.prices.max} placeholder="max" id="last_name" type="text" className="validate" onChange={(event) => this.handlePriceChange('max', event)} />
+                        <input value={this.state.filters.prices.max} placeholder="max" id="last_name" type="text" className="validate white-text" onChange={(event) => this.handlePriceChange('max', event)} />
                         <label className="active" htmlFor="last_name">Maximum Price</label>
                     </div>
-                </div>
-
-               
-                
-                <div className="row">
-                    <form className="check-box col s12 m5 l5" action="#">
+                    <form className="check-box" action="#">
                         {this.props.state.categories && this.props.state.categories.data.map((category,i) => <Checkbox key={i} callback={this.handleCategory} data={category}/>)}
                     </form>
-                    <div className="container-games row s12 m7 l7">
-                        <h2 className="flow-text">Games</h2>
-                        <div className="gamepages-container">
-                            {this.props.state.games && showGames.map((game,i) => <GameFrame key={i} game={game}/>)}
-                        </div>
-                    </div>
+                </div>
+                
+
+                <div className="container-games row s12 m7 l7">
+                    <h2 className="flow-text">Games</h2>
+                    {this.props.state.games && showGames.map((game,i) => <GameFrame key={i} game={game}/>)}
                 </div>
                 
                 <Footer />
