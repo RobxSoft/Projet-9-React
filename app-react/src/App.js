@@ -12,6 +12,7 @@ import ArticleInfo from './views/ArticleInfo.js'
 import Articles from './views/Articles.js'
 import AboutUs from './views/AboutUs.js'
 import Loader from './components/Loader';
+import Basket from './views/Basket.js'
 
 import 'materialize-css/dist/css/materialize.min.css';
 import { Component } from 'react';
@@ -57,6 +58,7 @@ class App extends Component{
           <Route exact path='/articles' element={<Articles state={this.state}/>} />
           <Route exact path='/gameinfo/:id' element={<GameInfo state={this.state}/>} />
           <Route exact path='/articleinfo/:id' element={<ArticleInfo state={this.state}/>} />
+          <Route exact path='/basket' element={<Basket state={this.state}/>} />
         </Routes>
       </Router>
     )
