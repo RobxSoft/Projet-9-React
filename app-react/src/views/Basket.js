@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -20,7 +20,6 @@ class Basket extends React.Component {
                 <div className="container-games">
                     <h2 className="flow-text center">Your Basket</h2>
                     <div className="gamepages-container row">
-                       //insert content
                     </div>
                 </div>
                 <Footer />

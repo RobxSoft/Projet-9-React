@@ -9,6 +9,7 @@ import WS_Background from '../img/worldseed_thumbnail.jpeg';
 import ContainerPopular from '../components/ContainerPopular';
 import ContainerSales from '../components/ContainerSales';
 import ContainerArticles from '../components/ContainerArticles';
+import {Link} from 'react-router-dom';
 
 class Home extends React.Component {
     constructor(props) {
@@ -16,6 +17,8 @@ class Home extends React.Component {
         console.log(props.state);
         this.state = {
             articles: props.state.articles,
+            games: props.state.games,
+            discover: props.state.games,
             loaded: props.state.loaded
         }
     }
@@ -33,7 +36,8 @@ class Home extends React.Component {
                         <div className="shadow-img">
                             <img src={WS_Background} alt=""/>
                         </div>
-                        <h2 className="flow-text">World Seed</h2>
+                        <h2 className="flow-text">{this.props.state.games.data[0].attributes.discover.data.id === 3 && this.props.state.games.data[0].attributes.title}</h2>
+                        
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis porta lacus, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
                         </p>
@@ -52,7 +56,7 @@ class Home extends React.Component {
                 </div>
                 <div className="container-games">
                     <h2 className="flow-text">Popular Games</h2>
-                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
+                    <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
                         <ContainerPopular/>
                         <ContainerPopular/>
@@ -64,7 +68,7 @@ class Home extends React.Component {
                 
                 <div className="container-games">
                     <h2 className="flow-text">Sales</h2>
-                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
+                    <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
                         <ContainerSales/>
                         <ContainerSales/>
@@ -106,7 +110,7 @@ class Home extends React.Component {
                 </div>
                 <div className="container-games">
                     <h2 className="flow-text">Popular Articles</h2>
-                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
+                    <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
                         <ContainerArticles article={this.state.articles.data[0].attributes} />
                         <ContainerArticles article={this.state.articles.data[0].attributes} />
@@ -116,7 +120,7 @@ class Home extends React.Component {
                 </div>
                 <div className="container-games">
                     <h2 className="flow-text">Latest Articles</h2>
-                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
+                    <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
                     <ContainerArticles article={this.state.articles.data[0].attributes} />
                     <ContainerArticles article={this.state.articles.data[0].attributes} />

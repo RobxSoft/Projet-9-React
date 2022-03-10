@@ -40,13 +40,15 @@ class GameInfo extends React.Component {
             images.push(LINK+value.attributes.url)
         }
 
+        console.log(this.state.game.attributes.categories.data);
+
         return(
             <React.Fragment>
                 <Navbar/>
                 <div className="gameinfo-container white-text">
                     <div className="row">
                     <h1>{this.state.game.attributes.title}</h1>
-                        <div className="col right-part s12 m8 l8">
+                        <div className="col right-part s12 m12 l8">
                             <Carousel
                                 carouselId="Carousel-32"
                                 images={images}
@@ -56,30 +58,11 @@ class GameInfo extends React.Component {
                                 }}
                             />
                             <h2>{this.state.game.attributes.main_description}</h2>
-                            <div className="row">
-                                <div className="col type s6 m6 l6">
-                                    <p>Type</p>
-                                    <div>
-                                        <a href="#">Action</a>
-                                        <a href="#">Adventure</a>
-                                        <a href="#">Horror</a>
-                                        <a href="#">Roleplay</a>
-                                        <a href="#">Survival</a>
-                                    </div>
-                                </div>
-                                <div className="col s6 m6 l6">
-                                    <p>Specifications</p>
-                                    <div>
-                                        <a href="#">Support controller</a>
-                                        <a href="#">Cooperation</a>
-                                        <a href="#">Multiplayer</a>
-                                        <a href="#">Solo</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <p>Type</p>
+                            <a>{this.state.game.attributes.categories.data[0].attributes.name}</a>  
                             <p>{this.state.game.attributes.description}</p>
                         </div>
-                        <div className="col left-part s12 m4 l4">
+                        <div className="col left-part s12 m12 l4">
                             <div className="center-align">
                                 <img className="" src={LINK+this.state.game.attributes.icon.data.attributes.url} />
                             </div>
@@ -89,19 +72,19 @@ class GameInfo extends React.Component {
                                 <div><a className="purchase waves-effect waves-light btn-large ">PURCHASE</a></div>
                                 <div><a className="add-basket waves-effect waves-light btn-large">ADD TO BASKET</a></div>
                                 <div className="row">
-                                    <div className="col s12 m12 l12">
+                                    <div className="col border s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Developper</p></div>
                                         <div className="col right s6 m6 l6"><p>{this.state.game.attributes.developer}</p></div>
                                     </div>
-                                    <div className="col s12 m12 l12">
+                                    <div className="col border s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Editor</p></div>
                                         <div className="col right s6 m6 l6"><p>{this.state.game.attributes.editor}</p></div>
                                     </div>
-                                    <div className="col s12 m12 l12">
+                                    <div className="col border s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Release date</p></div>
                                         <div className="col right s6 m6 l6"><p>{this.state.game.attributes.publishDate}</p></div>
                                     </div>
-                                    <div className="col s12 m12 l12">
+                                    <div className="col border s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Platform</p></div>
                                         <div className="col right s6 m6 l6"><p>{this.state.game.attributes.platform}</p></div>
                                     </div>

@@ -89,7 +89,9 @@ class Games extends React.Component {
                 delete showGames[key];
             }
         }
+        console.log(showGames);
         return(
+            
             <>
                 <Navbar callback={this.handleChange}/>
 

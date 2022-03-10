@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -46,7 +45,7 @@ class App extends Component{
   }
 
   render(){
-    if (this.state.loaded == false){
+    if (this.state.loaded === false){
         return <Loader/>
     }
     return (

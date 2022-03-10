@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discovers",
+  "info": {
+    "singularName": "discover",
+    "pluralName": "discovers",
+    "displayName": "Discover"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "game_id": {
+      "type": "string"
+    }
+  }
+}

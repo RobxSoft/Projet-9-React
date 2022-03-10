@@ -70,6 +70,11 @@
     },
     "platform": {
       "type": "string"
+    },
+    "discover": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::discover.discover"
     }
   }
 }
