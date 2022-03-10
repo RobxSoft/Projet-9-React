@@ -68,6 +68,7 @@ class Navbar extends React.Component {
             return(
                 <>
                     <a onClick={this.Logout}>Log Out</a>
+                    <Link className="link" to={`/order`}>Previous Order</Link>
                 </>
             )
         }else{
@@ -81,7 +82,6 @@ class Navbar extends React.Component {
     }
 
     render(){
-        console.log(this.state);
         return (
             <>
                 <nav className="navup">
@@ -94,7 +94,7 @@ class Navbar extends React.Component {
                     <Link className="brand-logo center" to="/"><img className="responsive-img" src={Logo}/></Link>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
                     <ul className="hide-on-med-and-down right">
-                        <li className="center"><a href="#">Basket</a></li>
+                        <li className="center"><Link to="/basket">Basket</Link></li>
                         <li className="center profile">
                             <Dropdown id="profile_dropdown" trigger={<a>Profile</a>} >
                                 <this.DropdownHandler isLoggedIn={this.state.user && this.state.user.Bearer} />
@@ -118,10 +118,13 @@ class Navbar extends React.Component {
                 </nav>
         
                 <ul className="sidenav" id="mobile-demo">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
+                <li className="center"><Link to="/">Shop</Link></li>
+                <li className="center"><Link to="/about-us">About Us</Link></li>
+                <li className="center"><Link to="/games">Games</Link></li>
+                <li className="center"><Link to="/articles">Articles</Link></li>
+                <Dropdown id="profile_dropdown" trigger={<a>Profile</a>} >
+                    <this.DropdownHandler isLoggedIn={this.state.user && this.state.user.Bearer} />
+                </Dropdown>
                 </ul>
             </>
         )

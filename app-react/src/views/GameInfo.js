@@ -17,17 +17,37 @@ class GameInfo extends React.Component {
         super(props)
         this.state = {
             game: null,
+            id: null,
             loaded: false
         }
+
+        this.AddToBasket = this.AddToBasket.bind(this);
     }
 
     componentDidMount(){
         const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         const game = this.props.state.games.data.find(game=>game.id===parseInt(id))
-        this.setState({game: game, loaded: true})
+        this.setState({game: game, loaded: true, id: parseInt(id)})
 
         var elems = document.querySelectorAll('.carousel');
         var instances = M.Carousel.init(elems, {});
+    }
+
+    AddToBasket(event){
+        var existingEntries = JSON.parse(localStorage.getItem('basket')) || [];
+        var item = existingEntries.find(item=>item.id === this.state.id);
+        if (item){
+            //incrementing amount
+            item.amount += 1;
+        }else{
+            //new to basket
+            existingEntries.push({
+                id: this.state.id,
+                amount: 1
+            })
+        }
+        localStorage.setItem('basket', JSON.stringify(existingEntries));
+        M.toast({html: 'Added item to basket!'})
     }
 
     render(){
@@ -70,7 +90,7 @@ class GameInfo extends React.Component {
                             <div className="container">
                                 <p>{this.state.game.attributes.price}$</p>
                                 <div><a className="purchase waves-effect waves-light btn-large ">PURCHASE</a></div>
-                                <div><a className="add-basket waves-effect waves-light btn-large">ADD TO BASKET</a></div>
+                                <div><a onClick={this.AddToBasket} className="add-basket waves-effect waves-light btn-large">ADD TO BASKET</a></div>
                                 <div className="row">
                                     <div className="col border s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Developper</p></div>

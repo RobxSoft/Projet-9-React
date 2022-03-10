@@ -12,10 +12,12 @@ import Articles from './views/Articles.js'
 import AboutUs from './views/AboutUs.js'
 import Loader from './components/Loader';
 import Basket from './views/Basket.js'
+import Order from './views/Order.js'
 
 import 'materialize-css/dist/css/materialize.min.css';
 import { Component } from 'react';
 import ApiUtilities from './api/ApiUtilities.js';
+import { Footer, Navbar } from 'react-materialize';
 
 class App extends Component{
   constructor(props){
@@ -45,8 +47,14 @@ class App extends Component{
   }
 
   render(){
-    if (this.state.loaded === false){
-        return <Loader/>
+    if (this.state.loaded == false){
+      return (
+        <>
+            <Navbar/>
+            <Loader/>
+            <Footer/>
+        </>
+      )
     }
     return (
       <Router>
@@ -57,7 +65,9 @@ class App extends Component{
           <Route exact path='/articles' element={<Articles state={this.state}/>} />
           <Route exact path='/gameinfo/:id' element={<GameInfo state={this.state}/>} />
           <Route exact path='/articleinfo/:id' element={<ArticleInfo state={this.state}/>} />
+          <Route exact path='/games' element={<Games state={this.state}/>} />
           <Route exact path='/basket' element={<Basket state={this.state}/>} />
+          <Route exact path='/order' element={<Order state={this.state}/>} />
         </Routes>
       </Router>
     )
