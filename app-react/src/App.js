@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -13,6 +12,7 @@ import Articles from './views/Articles.js'
 import AboutUs from './views/AboutUs.js'
 import Loader from './components/Loader';
 import Basket from './views/Basket.js'
+import Order from './views/Order.js'
 
 import 'materialize-css/dist/css/materialize.min.css';
 import { Component } from 'react';
@@ -36,13 +36,38 @@ class App extends Component{
     const games = await ApiUtilities.getGames();
     const creators = await ApiUtilities.getCreator();
     const categories = await ApiUtilities.getCategories();
+    const discover = await ApiUtilities.getDiscover();
 
     this.setState({
       articles: articles,
       games: games,
       creators: creators,
       categories: categories,
+      discover: discover,
       loaded: true
+    })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.onRouteChanged();
+    }
+  }
+
+  async onRouteChanged(){
+    console.log(":D");
+    const articles = await ApiUtilities.getArticle();
+    const games = await ApiUtilities.getGames();
+    const creators = await ApiUtilities.getCreator();
+    const categories = await ApiUtilities.getCategories();
+    const discover = await ApiUtilities.getDiscover();
+
+    this.setState({
+      articles: articles,
+      games: games,
+      creators: creators,
+      categories: categories,
+      discover: discover,
     })
   }
 
@@ -67,6 +92,7 @@ class App extends Component{
           <Route exact path='/articleinfo/:id' element={<ArticleInfo state={this.state}/>} />
           <Route exact path='/games' element={<Games state={this.state}/>} />
           <Route exact path='/basket' element={<Basket state={this.state}/>} />
+          <Route exact path='/order' element={<Order state={this.state}/>} />
         </Routes>
       </Router>
     )

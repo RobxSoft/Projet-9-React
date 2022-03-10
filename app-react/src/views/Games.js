@@ -90,6 +90,7 @@ class Games extends React.Component {
             }
         }
         return(
+            
             <>
                 <Navbar callback={this.handleChange}/>
 

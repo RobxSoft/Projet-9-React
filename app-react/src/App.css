@@ -86,7 +86,7 @@ h2{
 }
 
 
-.featured-shop a {
+.featured-shop .btn{
   position: absolute;
   background-color: white;
   color: #262626;
@@ -99,6 +99,10 @@ h2{
   top: 80%;
   left: 5%;
   max-width: 45%;
+}
+
+.featured-shop .btn a{
+  color: #262626;
 }
 
 .featured-article a {
@@ -261,9 +265,8 @@ h2{
 }
 
 .featured-game .icon{
-  background: url("img/worldseed_thumbnail.jpeg");
-  background-size: cover;
   border-radius: 1vh;
+  background-size: cover !important;
 }
 
 .featured-game .icon:after {
@@ -390,7 +393,7 @@ h2{
   border-radius: 1vh;
   margin-bottom: 40px !important;
   padding: 0 !important;
-  width: 190px;
+  width: 180px;
   height: 300px;
   margin-right: 20px;
   margin-left: 20px;
@@ -405,12 +408,13 @@ h2{
   margin-left: 20px;
 }
 
-.creator-container {
+.creator-container, .order-container {
   background: #262626;
   padding: 0 !important;
   margin-bottom: 40px;
   padding-top: 7px !important;
 }
+
 
 .popular-container {
   width: 250px !important;
@@ -418,11 +422,12 @@ h2{
 }
 
 .article-container {
-  max-width: 500px !important;
+  width: 500px !important;
+  min-width: 500px !important;  
 }
 
 .games-container img, .popular-container img, .article-container img {
-  width: 190px;
+  width: 180px;
   height: 250px;
   padding: 0;
   border-radius: 1vh 1vh 0 0; 
@@ -438,7 +443,7 @@ h2{
 }
 
 .article-container img {
-  width: 500px;
+
   height: 275px;
 }
 
@@ -528,6 +533,14 @@ h2{
   text-decoration: underline;
 }
 
+.more {
+  margin-top: 5% !important;
+}
+
+.right-part2 {
+  margin-right: 0 !important;
+}
+
 .gameinfo-container .purchase, .gameinfo-container .add-basket {
   text-decoration: none;
 }
@@ -576,28 +589,36 @@ h2{
 }
 
 .left-part .row .right {
-  border-bottom: 1px solid #707070;
   text-align: right;
 }
 
-.left-part .row .left {
+.left-part .row .border {
   border-bottom: 1px solid #707070;
   color: #707070;
 }
 
-.creator-container p {
+.creator-container p, .order-container p  {
   padding-left: 0px !important;
 }
 
-.creator-container .col h3 {
+
+.creator-container .col h3, .order-container .col h3 {
   font-size: 40px;
 }
 
-.creator-container .col p {
+.creator-container .col p, .order-container .col p {
   font-size: 15px;
 }
 
 .creator-container img {
+  width: 50% !important;
+}
+
+.order-container img {
+  border-radius: 1vh;
+}
+
+.order-container {
   width: 50% !important;
 }
 
@@ -637,6 +658,7 @@ h2{
 .collection{
   border: none !important;
 }
+
 
 .collection .collection-item{
   background-color: #262626 !important;

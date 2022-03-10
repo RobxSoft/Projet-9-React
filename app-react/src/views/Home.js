@@ -9,15 +9,26 @@ import WS_Background from '../img/worldseed_thumbnail.jpeg';
 import ContainerPopular from '../components/ContainerPopular';
 import ContainerSales from '../components/ContainerSales';
 import ContainerArticles from '../components/ContainerArticles';
+import {Link} from 'react-router-dom';
+import Loader from '../components/Loader';
+
+const LINK = "http://localhost:1337";
 
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        console.log(props.state);
         this.state = {
-            articles: props.state.articles,
-            loaded: props.state.loaded
+            loaded: false,
+            featured: null,
         }
+    }
+    
+    componentDidMount(){
+        console.log(this.props.state.discover.data[0].attributes.game.data);
+        this.setState({
+            loaded: true,
+            featured: this.props.state.discover.data[0].attributes.game.data
+        });
     }
 
     handleChange = (text) => {
@@ -25,34 +36,41 @@ class Home extends React.Component {
     }
 
     render(){
+        if (this.state.loaded == false){
+            return (
+                <>
+                    <Navbar/>
+                    <Loader/>
+                    <Footer />
+                </>
+            )
+        }
+        
+        const featureGameInfo = this.props.state.games.data.find(game=>game.id === this.state.featured.id);
+        const PopularGames = "";
+
         return(
-            <React.Fragment>
+            <>
                 <Navbar callback={this.handleChange}/>
                 <div className="featured-shop row">
                     <div className="image-container col s12 l8">
                         <div className="shadow-img">
-                            <img src={WS_Background} alt=""/>
+                            <img src={LINK+featureGameInfo.attributes.images.data[2].attributes.url} alt=""/>
                         </div>
-                        <h2 className="flow-text">World Seed</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis porta lacus, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
-                        </p>
-                        <a className="waves-effect waves-light btn-medium">Buy</a>
+                        <h2 className="flow-text">{this.state.featured.attributes.title}</h2>
+                        <p>{this.state.featured.attributes.description}</p>
+                        <Link className="btn z-depth-0 waves-effect waves-light btn-medium" to={`/gameinfo/${this.state.featured.id}`}>Buy</Link>
                     </div>
 
                     <div className="featured-list col s12 l4">
                         <div className="box">
-                            <FeaturedGame/>
-                            <FeaturedGame/>
-                            <FeaturedGame/>
-                            <FeaturedGame/>
-                            <FeaturedGame/>
+                            {this.props.state.discover && this.props.state.discover.data.map((discover,i) => <FeaturedGame key={i} first={i===0} data={featureGameInfo}/>)}
                         </div>
                     </div>
                 </div>
                 <div className="container-games">
                     <h2 className="flow-text">Popular Games</h2>
-                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
+                    <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
                         <ContainerPopular/>
                         <ContainerPopular/>
@@ -64,7 +82,7 @@ class Home extends React.Component {
                 
                 <div className="container-games">
                     <h2 className="flow-text">Sales</h2>
-                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
+                    <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
                         <ContainerSales/>
                         <ContainerSales/>
@@ -106,26 +124,26 @@ class Home extends React.Component {
                 </div>
                 <div className="container-games">
                     <h2 className="flow-text">Popular Articles</h2>
-                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
+                    <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
-                        <ContainerArticles article={this.state.articles.data[0].attributes} />
-                        <ContainerArticles article={this.state.articles.data[0].attributes} />
-                        <ContainerArticles article={this.state.articles.data[0].attributes} />
-                        <ContainerArticles article={this.state.articles.data[0].attributes} />
+                        <ContainerArticles article={this.props.state.articles.data[0].attributes} />
+                        <ContainerArticles article={this.props.state.articles.data[0].attributes} />
+                        <ContainerArticles article={this.props.state.articles.data[0].attributes} />
+                        <ContainerArticles article={this.props.state.articles.data[0].attributes} />
                     </div>
                 </div>
                 <div className="container-games">
                     <h2 className="flow-text">Latest Articles</h2>
-                    <a className="waves-effect btn z-depth-0">SEE ALL</a>
+                    <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
-                    <ContainerArticles article={this.state.articles.data[0].attributes} />
-                    <ContainerArticles article={this.state.articles.data[0].attributes} />
-                    <ContainerArticles article={this.state.articles.data[0].attributes} />
-                    <ContainerArticles article={this.state.articles.data[0].attributes} />
+                    <ContainerArticles article={this.props.state.articles.data[0].attributes} />
+                    <ContainerArticles article={this.props.state.articles.data[0].attributes} />
+                    <ContainerArticles article={this.props.state.articles.data[0].attributes} />
+                    <ContainerArticles article={this.props.state.articles.data[0].attributes} />
                     </div>
                 </div>
                 <Footer />
-            </React.Fragment>
+            </>
         )
     }
 }

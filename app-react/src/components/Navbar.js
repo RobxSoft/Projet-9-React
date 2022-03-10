@@ -68,7 +68,7 @@ class Navbar extends React.Component {
             return(
                 <>
                     <a onClick={this.Logout}>Log Out</a>
-                    <Link className="link" to={`/basket`}>Previous Order</Link>
+                    <Link className="link" to={`/order`}>Previous Order</Link>
                 </>
             )
         }else{
@@ -118,10 +118,10 @@ class Navbar extends React.Component {
                 </nav>
         
                 <ul className="sidenav" id="mobile-demo">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">Javascript</a></li>
-                    <li><a href="mobile.html">Mobile</a></li>
+                <li className="center"><Link to="/">Shop</Link></li>
+                <li className="center"><Link to="/about-us">About Us</Link></li>
+                <li className="center"><Link to="/games">Games</Link></li>
+                <li className="center"><Link to="/articles">Articles</Link></li>
                 </ul>
             </>
         )

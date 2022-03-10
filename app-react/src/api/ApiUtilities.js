@@ -49,3 +49,28 @@ module.exports.getCategories = async function(){
     const categories = await response.json();
     return categories;
 }
+
+module.exports.getDiscover = async function(){
+    const response = await fetch('http://localhost:1337/api/discovers?populate=*', {
+        method: 'GET', 
+        headers: {
+            'Accept': 'application/json', 
+            'Content-Type':'application/json'
+        }
+    }
+    )
+    const discovers = await response.json();
+    return discovers;
+}
+
+module.exports.getUser = async function(ID){
+    const response = await fetch(`http://localhost:1337/api/users/${ID}?populate=*`, {
+        method: 'GET', 
+        headers: {
+            'Accept': 'application/json', 
+            'Content-Type':'application/json'
+        }
+    })
+    const userData = await response.json();
+    return userData;
+}

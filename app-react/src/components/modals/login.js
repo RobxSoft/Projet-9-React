@@ -52,6 +52,11 @@ class Login extends React.Component {
             })
 
             const loginResponse = await login.json()
+            if(!loginResponse.jwt){
+                M.toast({html: 'User or password is wrong.'})
+                this.setState({open: true})
+                return;
+            }
             localStorage.setItem('user', JSON.stringify({
                 Bearer: loginResponse.jwt,
                 User: loginResponse.user

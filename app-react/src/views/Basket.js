@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -66,6 +66,24 @@ class Basket extends React.Component {
             localStorage.removeItem('basket');
             this.setState({basket: []});
             M.toast({html: 'Ordered games!'});
+
+            //incremeting each product sell amount.
+            for (const [key, id] of Object.entries(gamesID)) {
+                const orderDB = await fetch(`${LINK}/api/games/${id}`, {
+                    method: "PUT",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${data.Bearer}`
+                    },
+                    body: JSON.stringify({
+                        data: {
+                            sales: 1,
+                        }
+                    }),
+                })
+                await orderDB.json();
+            }
         }else{
             M.toast({html: 'Error while purshasing games.'});
         }
@@ -87,7 +105,6 @@ class Basket extends React.Component {
     }
 
     render(){
-        console.log(this.props);
         if (this.state.loaded == false){
             return (
                 <>
@@ -97,21 +114,33 @@ class Basket extends React.Component {
                 </>
             )
         }
+
+        var totalPrice = 0
+        for (const [key, value] of Object.entries(this.state.basket)) {
+            totalPrice += this.props.state.games.data.find(game=>game.id===value.id).attributes.price;
+        }
+
         return(
             <>
                 <Navbar/>
-                <div className="container-games">
-                    <h2 className="flow-text center">Your Basket</h2>
-                    <ul className="collection">
-                        {this.state.basket && this.state.basket.map((game,i) => <BasketItem key={i} data={{
-                            id: game.id,
-                            amount: game.amount,
-                            gameData: this.props.state.games.data.find(item=>item.id === game.id).attributes,
-                            callback: this.DeleteFromBasket
-                        }}/>)}
-                    </ul>
-                </div>
-                <a onClick={this.Order} className="waves-effect blue_btn">BUY</a>
+                <div className="row">
+                    <div className="col container-games right-part2 s12 m12 l7">
+                        <h2 className="flow-text center">Your Basket</h2>
+                        <ul className="collection">
+                            {this.state.basket && this.state.basket.map((game,i) => <BasketItem key={i} data={{
+                                id: game.id,
+                                amount: game.amount,
+                                gameData: this.props.state.games.data.find(item=>item.id === game.id).attributes
+                            }}/>)}
+                        </ul>
+                    </div>
+                    <div className="col white-text left-part more center s12 m12 l3">
+                        <div className="container">
+                            <p>TOTAL : {totalPrice}$</p>
+                            <div><a onClick={this.Order} className="purchase waves-effect waves-light btn-large ">PURCHASE</a></div>
+                        </div>
+                    </div>
+                </div>                
                 <Footer />
             </>
         )

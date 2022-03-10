@@ -44,11 +44,12 @@
       "type": "date"
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 0
     },
     "sales": {
       "type": "integer",
-      "min": 0
+      "default": 0
     },
     "rating": {
       "type": "integer",

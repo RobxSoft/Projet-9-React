@@ -106,24 +106,24 @@ class Register extends React.Component {
                     </div>
 
                     <div className="row">
-                         <div className="input-field col s6">
-                        <i className="material-icons prefix">password</i>
-                        <input id="user_pass_register" type="password" onChange={this.handleChange} />
-                        <label>Password</label>
-                    </div>
-                    
-                    <div className="input-field col s6">
-                        <i className="material-icons prefix">password</i>
-                        <input id="user_pass_confirm" type="password" onChange={this.handleChange} />
-                        <label>Confirm Password</label>
-                    </div>
+                        <div className="input-field col s6">
+                            <i className="material-icons prefix">password</i>
+                            <input id="user_pass_register" type="password" onChange={this.handleChange} />
+                            <label>Password</label>
+                        </div>
+                        
+                        <div className="input-field col s6">
+                            <i className="material-icons prefix">password</i>
+                            <input id="user_pass_confirm" type="password" onChange={this.handleChange} />
+                            <label>Confirm Password</label>
+                        </div>
                     </div>
 
                     <p>
-                    <label>
-                        <input type="checkbox" name="checkbox" className="filled-in"/>
-                        <span>I agree to the term of use and acknowledging the Privacy Policy</span>
-                    </label>
+                        <label>
+                            <input type="checkbox" name="checkbox" className="filled-in"/>
+                            <span>I agree to the term of use and acknowledging the Privacy Policy</span>
+                        </label>
                     </p><br/>
 
                     <input className="modal-close waves-effect blue_btn" type="submit" value="Register" />

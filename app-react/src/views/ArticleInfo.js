@@ -40,27 +40,6 @@ class ArticleInfo extends React.Component {
                         <h1>{this.state.article.attributes.title}</h1>
                         <img src={LINK+this.state.article.attributes.icon.data.attributes.url}/>
                         <h2 className="left-align">{this.state.article.attributes.main_text}</h2>
-                        <div className="row">
-                            <div className="col type s6 m6 l6">
-                                <p>Type</p>
-                                <div>
-                                    <a href="#">Action</a>
-                                    <a href="#">Adventure</a>
-                                    <a href="#">Horror</a>
-                                    <a href="#">Roleplay</a>
-                                    <a href="#">Survival</a>
-                                </div>
-                            </div>
-                            <div className="col s6 m6 l6">
-                                <p>Specifications</p>
-                                <div>
-                                    <a href="#">Support controller</a>
-                                    <a href="#">Cooperation</a>
-                                    <a href="#">Multiplayer</a>
-                                    <a href="#">Solo</a>
-                                </div>
-                            </div>
-                        </div>
                         <p className="left-align content">{this.state.article.attributes.text}</p>
                         <p>Article wrote by {this.state.article.attributes.author}</p>
                         <p>Posted on {this.state.article.attributes.publish}</p>
