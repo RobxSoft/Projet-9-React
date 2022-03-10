@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -19,10 +20,14 @@ class Home extends React.Component {
         }
     }
 
+    handleChange = (text) => {
+        this.props.history.push('/games')
+    }
+
     render(){
         return(
             <React.Fragment>
-                <Navbar/>
+                <Navbar callback={this.handleChange}/>
                 <div className="featured-shop row">
                     <div className="image-container col s12 l8">
                         <div className="shadow-img">

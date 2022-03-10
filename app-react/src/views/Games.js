@@ -64,14 +64,13 @@ class Games extends React.Component {
         )
         for (const [key, value] of Object.entries(showGames)) {
             //price checking
-            console.log(this.state.filters.prices.min, this.state.filters.prices.max, value.attributes.price);
             if(value.attributes.price < this.state.filters.prices.min || value.attributes.price > this.state.filters.prices.max){
                 delete showGames[key];
                 continue;
             }
 
             //categories checking
-            if(!value.attributes.categories || this.state.filters.categories.length > 0){continue};
+            if(!value.attributes.categories || this.state.filters.categories.length === 0){continue};
             
             let hasCategory = true;
             for (const [_, checkedCategory] of Object.entries(this.state.filters.categories)) {

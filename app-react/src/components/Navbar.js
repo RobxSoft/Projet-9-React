@@ -3,42 +3,87 @@ import React, {Component} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import { Button, Modal, Row, Col, Dropdown, Divider, Icon } from 'react-materialize';
 import {Link} from 'react-router-dom';
 
 import Logo from '../img/Logo_Title.png';
 import WhiteLogo from '../img/White_Logo.png';
+import Login from './modals/login';
+import Register from './modals/register';
 
 class Navbar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             search: '',
+            user: {},
             callback: props.callback || null,
         }
+
+        this.DropdownHandler = this.DropdownHandler.bind(this);
+        this.Logout = this.Logout.bind(this);
+        this.LogedIn = this.LogedIn.bind(this);
     }
 
     componentDidMount(){
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems, {});
-        });        
+        });
+        
+        var data = localStorage.getItem('user');
+        this.setState({
+            user : JSON.parse(localStorage.getItem('user'))
+        });
     }
 
     handleSearchChange(event){
-        let text = event.target.value
+        let text = event.target.value;
         //changing state
-        let stateCopy = JSON.parse(JSON.stringify(this.state))
-        stateCopy.search = text
-        this.setState(stateCopy)
+        let stateCopy = JSON.parse(JSON.stringify(this.state));
+        stateCopy.search = text;
+        this.setState(stateCopy);
         
         if (this.state.callback){
-            this.state.callback(text)
+            this.state.callback(text);
+        };
+    }
+
+    LogedIn(){
+        var data = localStorage.getItem('user');
+        this.setState({
+            user : JSON.parse(localStorage.getItem('user'))
+        });
+    }
+
+    Logout(){
+        localStorage.removeItem('user');
+        this.setState({
+            user : {}
+        })
+    }
+
+    DropdownHandler(props){
+        if(props.isLoggedIn){
+            return(
+                <>
+                    <a onClick={this.Logout}>Log Out</a>
+                </>
+            )
+        }else{
+            return(
+                <>
+                    <Register callback={this.LogedIn} button={<a>Register</a>}/>
+                    <Login callback={this.LogedIn} button={<a>Log In</a>}/>
+                </>
+            )
         }
     }
 
     render(){
+        console.log(this.state);
         return (
-            <React.Fragment>
+            <>
                 <nav className="navup">
                     <div className="nav-wrapper">
                     <Link className="left hide-on-med-and-down" to="/"><img className="responsive-img" src={WhiteLogo}/></Link>
@@ -50,7 +95,11 @@ class Navbar extends React.Component {
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
                     <ul className="hide-on-med-and-down right">
                         <li className="center"><a href="#">Basket</a></li>
-                        <li className="center profile"><a href="#">Profile</a></li>
+                        <li className="center profile">
+                            <Dropdown id="profile_dropdown" trigger={<a>Profile</a>} >
+                                <this.DropdownHandler isLoggedIn={this.state.user && this.state.user.Bearer} />
+                            </Dropdown>
+                        </li>
                     </ul>
                     </div>
                 </nav>
@@ -74,7 +123,7 @@ class Navbar extends React.Component {
                     <li><a href="collapsible.html">Javascript</a></li>
                     <li><a href="mobile.html">Mobile</a></li>
                 </ul>
-            </React.Fragment>
+            </>
         )
     }
 }

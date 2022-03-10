@@ -30,7 +30,6 @@ class App extends Component{
   }
 
   async componentDidMount () {
-    console.log("mount");
     const articles = await ApiUtilities.getArticle();
     const games = await ApiUtilities.getGames();
     const creators = await ApiUtilities.getCreator();

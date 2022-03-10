@@ -5,6 +5,10 @@ import Footer from '../components/Footer'
 import Logo from '../img/Logo_Title.png';
 import Loader from '../components/Loader';
 
+import M from 'materialize-css';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+import { Carousel } from 'react-materialize';
+
 const LINK = "http://localhost:1337";
 
 
@@ -21,13 +25,21 @@ class GameInfo extends React.Component {
         const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         const game = this.props.state.games.data.find(game=>game.id===parseInt(id))
         this.setState({game: game, loaded: true})
+
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems, {});
     }
 
     render(){
-        console.log(this.state);
         if (this.state.loaded == false){
             return <Loader />
         }
+
+        const images = [];
+        for (const [key, value] of Object.entries(this.state.game.attributes.images.data)) {
+            images.push(LINK+value.attributes.url)
+        }
+
         return(
             <React.Fragment>
                 <Navbar/>
@@ -35,7 +47,14 @@ class GameInfo extends React.Component {
                     <div className="row">
                     <h1>{this.state.game.attributes.title}</h1>
                         <div className="col right-part s12 m8 l8">
-                            <img src={LINK+this.state.game.attributes.images.data[0].attributes.url}/>
+                            <Carousel
+                                carouselId="Carousel-32"
+                                images={images}
+                                options={{
+                                    fullWidth: true,
+                                    indicators: true
+                                }}
+                            />
                             <h2>{this.state.game.attributes.main_description}</h2>
                             <div className="row">
                                 <div className="col type s6 m6 l6">

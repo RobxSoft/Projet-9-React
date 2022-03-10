@@ -612,3 +612,12 @@ h2{
   text-align: left !important;
   margin: 0 !important;
 }
+
+.blue_btn{
+  background-color: #039be5;
+  color: white;
+  border: none;
+  text-decoration: none;
+  padding: 1%;
+  border-radius: 1vh;
+}
