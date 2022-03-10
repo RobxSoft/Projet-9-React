@@ -530,6 +530,10 @@ h2{
   text-decoration: underline;
 }
 
+.more {
+  margin-top: 5% !important;
+}
+
 .right-part2 {
   margin-right: 0 !important;
 }

@@ -47,7 +47,7 @@ class Basket extends React.Component {
                             }}/>)}
                         </ul>
                     </div>
-                    <div className="col white-text left-part center s12 m12 l3">
+                    <div className="col white-text left-part more center s12 m12 l3">
                         <div className="container">
                             <p>TOTAL : 00$</p>
                             <div><a className="purchase waves-effect waves-light btn-large ">PURCHASE</a></div>
