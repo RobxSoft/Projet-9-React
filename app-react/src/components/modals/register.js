@@ -57,7 +57,8 @@ class Register extends React.Component {
             const registerResponse = await login.json()
 
             localStorage.setItem('user', JSON.stringify({
-                Bearer: registerResponse.jwt
+                Bearer: registerResponse.jwt,
+                User: registerResponse.user
             }));
 
             M.toast({html: 'Success'})

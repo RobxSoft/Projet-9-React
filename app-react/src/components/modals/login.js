@@ -53,7 +53,8 @@ class Login extends React.Component {
 
             const loginResponse = await login.json()
             localStorage.setItem('user', JSON.stringify({
-                Bearer: loginResponse.jwt
+                Bearer: loginResponse.jwt,
+                User: loginResponse.user
             }));
 
             M.toast({html: 'Success'})

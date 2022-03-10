@@ -37,8 +37,8 @@ class GameInfo extends React.Component {
         var existingEntries = JSON.parse(localStorage.getItem('basket')) || [];
         var item = existingEntries.find(item=>item.id === this.state.id);
         if (item){
-            //incrementing amount
-            item.amount += 1;
+            M.toast({html: 'Game is already in basked!'})
+            return;
         }else{
             //new to basket
             existingEntries.push({
@@ -47,7 +47,7 @@ class GameInfo extends React.Component {
             })
         }
         localStorage.setItem('basket', JSON.stringify(existingEntries));
-        M.toast({html: 'Added item to basket!'})
+        M.toast({html: 'Added game to basket!'})
     }
 
     render(){
