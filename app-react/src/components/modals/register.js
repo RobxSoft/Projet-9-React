@@ -41,11 +41,6 @@ class Register extends React.Component {
         }
 
         if(success){
-            console.log({
-                username: this.state.form.username_register,
-                email: this.state.form.user_email_register,
-                password: this.state.form.user_pass_register
-            });
             const login = await fetch(`${LINK}/api/auth/local/register`, {
                 method: "POST",
                 headers: {
@@ -79,7 +74,6 @@ class Register extends React.Component {
     }
 
     render(){
-        console.log(this.state);
         return (
             <Modal
                 actions={[

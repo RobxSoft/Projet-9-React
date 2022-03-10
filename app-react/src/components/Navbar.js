@@ -68,7 +68,7 @@ class Navbar extends React.Component {
             return(
                 <>
                     <a onClick={this.Logout}>Log Out</a>
-                    <Link className="link" to={`/Orders`}>Previous Order</Link>
+                    <Link className="link" to={`/basket`}>Previous Order</Link>
                 </>
             )
         }else{
@@ -82,7 +82,6 @@ class Navbar extends React.Component {
     }
 
     render(){
-        console.log(this.state);
         return (
             <>
                 <nav className="navup">
@@ -95,7 +94,7 @@ class Navbar extends React.Component {
                     <Link className="brand-logo center" to="/"><img className="responsive-img" src={Logo}/></Link>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
                     <ul className="hide-on-med-and-down right">
-                        <li className="center"><a href="#">Basket</a></li>
+                        <li className="center"><Link to="/basket">Basket</Link></li>
                         <li className="center profile">
                             <Dropdown id="profile_dropdown" trigger={<a>Profile</a>} >
                                 <this.DropdownHandler isLoggedIn={this.state.user && this.state.user.Bearer} />

@@ -39,10 +39,6 @@ class Login extends React.Component {
         }
 
         if(success){
-            console.log({
-                identifier: this.state.form.user_email,
-                password: this.state.form.user_pass
-            });
             const login = await fetch(`${LINK}/api/auth/local`, {
                 method: "POST",
                 headers: {
@@ -56,7 +52,6 @@ class Login extends React.Component {
             })
 
             const loginResponse = await login.json()
-            console.log(loginResponse);
             localStorage.setItem('user', JSON.stringify({
                 Bearer: loginResponse.jwt
             }));
