@@ -68,6 +68,7 @@ class Navbar extends React.Component {
             return(
                 <>
                     <a onClick={this.Logout}>Log Out</a>
+                    <Link className="link" to={`/Orders`}>Previous Order</Link>
                 </>
             )
         }else{
