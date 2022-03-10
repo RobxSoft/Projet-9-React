@@ -112,13 +112,6 @@ class GameInfo extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="container-games">
-                        <h2 className="flow-text">Dedicated Articles</h2>
-                        <a className="waves-effect btn z-depth-0">SEE ALL</a>
-                        <div className="send-game-container">
-  
-                        </div>
-                </div>
                 <Footer />
             </React.Fragment>
         )

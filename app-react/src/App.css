@@ -49,6 +49,7 @@ h2{
 
 .featured-shop .shadow-img img, .featured-article .simple-img img{
   width: 100%;
+  max-width: 800px;
   position:relative;
   border-radius: 2vh;
   z-index:-1;
@@ -350,6 +351,22 @@ h2{
   padding: 2%;
 }
 
+.more-stuff {
+  margin-top: -390px;
+}
+
+
+@media only screen and (max-width: 992px) {
+  .featured-shop p{
+    font-size: 18px;
+    max-width: 60%;
+  }
+
+  .container-games {
+    margin-top: 50px;
+  }
+}
+
 .gameinfo-container {
   margin-left: 10% !important;
   margin-right: 10% !important;
@@ -624,6 +641,10 @@ h2{
 
 .filters {
   background-color: #343434;
+  border-radius: 1vh;
+  position: sticky;
+  top: 25%;
+  padding-top: 20px !important;
 }
 
 .link {
