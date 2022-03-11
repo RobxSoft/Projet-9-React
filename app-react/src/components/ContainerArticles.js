@@ -1,30 +1,23 @@
 import React, {Component} from 'react';
 
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
-import App from '../App.js';
-import WS_Background from '../img/worldseed_thumbnail.jpeg';
+import { Link } from 'react-router-dom';
+const LINK = "http://localhost:1337";
+
 
 class ContainerArticles extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            article: props.article
-        }
-    }
-
     render(){
+        console.log(this.props);
         return (
+            <Link className="link" to={`/articleinfo/${this.props.id}`}>
             <div className="article-container">
-                <img src={WS_Background }/>
+                <img src={LINK+this.props.data.attributes.icon.data.attributes.url}/>
                 <div>
-                    <h3>World Seed Finally Released!</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis porta lacus, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
-                    </p>
+                    <h3>{this.props.data.attributes.title}</h3>
+                    <p>{this.props.data.attributes.main_text}</p>
                 </div>
             </div>
+            </Link>
         )
     }
 }

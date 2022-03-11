@@ -4,6 +4,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 import ER_Image from '../img/elden_ring.jpg';
+import { Link } from 'react-router-dom';
 
 const LINK = "http://localhost:1337";
 
@@ -13,6 +14,7 @@ class ContainerSales extends React.Component {
         const currentPromotion = (this.props.data[1].attributes.price*(this.props.data[1].attributes.promotion/100)); 
 
         return (
+            <Link className="link" to={`/gameinfo/${this.props.data[1].id}`}>
             <div className="games-container">
                 <div className="sales">
                     <img src={LINK+this.props.data[1].attributes.icon.data.attributes.url} />
@@ -23,6 +25,7 @@ class ContainerSales extends React.Component {
                     <p className="col s6 m4 l4 right">{(this.props.data[1].attributes.price-currentPromotion).toFixed(2)}$</p>
                 </div>
             </div>
+            </Link>
         )
     }
 }
