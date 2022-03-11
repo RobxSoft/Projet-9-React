@@ -74,3 +74,15 @@ module.exports.getUser = async function(ID){
     const userData = await response.json();
     return userData;
 }
+
+module.exports.getDiscoverArticles = async function(){
+    const response = await fetch(`http://localhost:1337/api/discover-articles?populate=*`, {
+        method: 'GET', 
+        headers: {
+            'Accept': 'application/json', 
+            'Content-Type':'application/json'
+        }
+    })
+    const discoverArticles = await response.json();
+    return discoverArticles;
+}

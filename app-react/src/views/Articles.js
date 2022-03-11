@@ -27,12 +27,10 @@ class Articles extends React.Component {
             (article,key)=>article.attributes.title.toLowerCase().includes(this.state.search.toLowerCase())
         )
         
-        console.log(this.props);
-
         return(
             <>
                 <Navbar callback={this.handleChange}/>
-                <div className="container-games">
+                <div className="container-articles">
                     <h2 className="flow-text">Articles</h2>
                     <div className="gamepages-container row">
                         {this.props.state.articles && showArticles.map((article,i) => <ArticleFrame key={i} article={article}/>)}

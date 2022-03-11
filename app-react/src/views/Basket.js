@@ -124,7 +124,7 @@ class Basket extends React.Component {
             <>
                 <Navbar/>
                 <div className="row">
-                    <div className="col container-games right-part2 s12 m12 l7">
+                    <div className="col container-articles right-part2 s12 m12 l7">
                         <h2 className="flow-text center">Your Basket</h2>
                         <ul className="collection">
                             {this.state.basket && this.state.basket.map((game,i) => <BasketItem key={i} data={{

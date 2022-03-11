@@ -8,10 +8,14 @@ import Footer from '../components/Footer'
 import GameFrame from '../components/GameFrame';
 import Checkbox from '../components/Checkbox';
 
+import ApiUtilities from '../api/ApiUtilities.js';
+import Loader from '../components/Loader';
+
 class Games extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            games: {},
             search: '',
             filters: {
                 categories: [],
@@ -23,19 +27,16 @@ class Games extends React.Component {
                     previous_max: 0,
                 }
             },
-            loaded: props.state.loaded,
-            linkFilter: null
+            loaded: false,
         }
 
         this.ShowFilters = this.ShowFilters.bind(this);
     }
 
-    componentDidMount(){
-        const filter = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
-        if(filter!="games" && filter!=''){
-            this.setState({linkFilter: filter});
-            this.handleCategory(filter, true);
-        }
+    async componentDidMount(){
+        const games = await ApiUtilities.getGames();
+
+        this.setState({games: games, loaded: true});
     }
 
     handleChange = (text) => {
@@ -70,9 +71,11 @@ class Games extends React.Component {
     }
 
     ShowFilters(){
-        if(this.state.linkFilter === null){return(<div></div>);}
+        const filter = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+        if(filter!="games" && filter!=''){return(<div className="col s6 m1 l1"></div>);}
+
         return(
-            <div className="filters col hide-on-med-and-down s12 m12 l1">
+            <div className="hide-on-med-and-down filters col s6 m2 l2">
                 <div className="input-field col s12">
                     <input value={this.state.filters.prices.min} placeholder="min" id="first_name" type="text" className="validate white-text" onChange={(event) => this.handlePriceChange('min', event)}/>
                     <label className="active" htmlFor="first_name">Minimum Price</label>
@@ -89,7 +92,16 @@ class Games extends React.Component {
     }
 
     render(){
-        const showGames = this.props.state.games.data.filter(
+        if (this.state.loaded == false){
+            return (
+                <>
+                    <Navbar/>
+                    <Loader/>
+                    <Footer/>
+                </>
+            )
+        }
+        const showGames = this.state.games.data.filter(
             (game,key)=>game.attributes.title.toLowerCase().includes(this.state.search.toLowerCase())
         )
         for (const [key, value] of Object.entries(showGames)) {
@@ -123,11 +135,11 @@ class Games extends React.Component {
             
             <>
                 <Navbar callback={this.handleChange}/>
-                <div className="row">
+                <div className="row games-row">
                     <this.ShowFilters/>
-                    <div className="container-games more-stuff col s12 m12 l10">
+                    <div className="container-games col s12 m10 l10">
                         <h2 className="flow-text">Games</h2>
-                        {this.props.state.games && showGames.map((game,i) => <GameFrame key={i} game={game}/>)}
+                        {this.state.games && showGames.map((game,i) => <GameFrame key={i} game={game}/>)}
                     </div>
                 </div>
                 <Footer />

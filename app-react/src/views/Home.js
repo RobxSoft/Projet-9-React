@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 import '../App.css';
 import Navbar from '../components/Navbar'
@@ -9,8 +10,8 @@ import WS_Background from '../img/worldseed_thumbnail.jpeg';
 import ContainerPopular from '../components/ContainerPopular';
 import ContainerSales from '../components/ContainerSales';
 import ContainerArticles from '../components/ContainerArticles';
-import {Link} from 'react-router-dom';
 import Loader from '../components/Loader';
+import FeaturedArticle from '../components/FeaturedArticle';
 
 const LINK = "http://localhost:1337";
 
@@ -27,7 +28,6 @@ class Home extends React.Component {
     }
     
     componentDidMount(){
-        console.log(this.props.state.discover.data[0].attributes.game.data);
         this.setState({
             loaded: true,
             featured: this.props.state.discover.data[0].attributes.game.data
@@ -70,6 +70,14 @@ class Home extends React.Component {
         });
         PopularGames.slice(0, 5)
 
+        //sales games
+        var SalesGames = Object.keys(this.props.state.games.data).map(function(key) {
+            return [key, games[key]];
+        });
+        SalesGames.sort(function(first, second) {
+            return second[1].attributes.sales - first[1].attributes.sales;
+        });
+
         return(
             <>
                 <Navbar callback={this.handleChange}/>
@@ -89,7 +97,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="container-games">
+                <div className="container-articles">
                     <h2 className="flow-text">Popular Games</h2>
                     <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
@@ -97,49 +105,20 @@ class Home extends React.Component {
                     </div>
                 </div>
                 
-                <div className="container-games">
+                <div className="container-articles ">
                     <h2 className="flow-text">Sales</h2>
                     <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
-                        <ContainerSales/>
-                        <ContainerSales/>
-                        <ContainerSales/>
-                        <ContainerSales/>
-                        <ContainerSales/>
+                        {SalesGames.map((data,i) => <ContainerSales key={i} data={data[1]}/>)}
                     </div>
                 </div>
                 <div className="featured-title container center">
                         <h2 className="title">Featured Articles</h2>
                 </div>
-                <div className="featured-article row ">
-                    <div className="image-container col s12 m12 l6">
-                        <div className="simple-img">
-                            <img src={WS_Background} alt=""/>
-                        </div>
-                    </div>
-                    <div className="col s12 m12 l6">
-                        <h3 className="flow-text">World Seed Finally Released!</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis porta lacus, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
-                        </p>
-                        <a className="waves-effect waves-light btn-medium">READ MORE</a>
-                    </div>
-                </div>
-                <div className="featured-article row ">
-                    <div className="col s12 m12 l6">
-                        <h3 className="flow-text">World Seed Finally Released!</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis porta lacus, sit amet egestas dolor tristique vel. Integer dignissim eros lobortis ipsum semper faucibus.
-                        </p>
-                        <a className="waves-effect waves-light btn-medium">READ MORE</a>
-                    </div>
-                    <div className="image-container col s12 m12 l6">
-                        <div className="simple-img">
-                            <img src={WS_Background} alt=""/>
-                        </div>
-                    </div>
-                </div>
-                <div className="container-games">
+
+                {this.props.state.discoverArticles && this.props.state.discoverArticles.data.map((discover,i) => <FeaturedArticle key={i} id={discover.id} data={this.props.state.articles.data.find(article=>article.id === discover.attributes.article.data.id)}/>)}
+                
+                <div className="container-articles">
                     <h2 className="flow-text">Popular Articles</h2>
                     <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
@@ -149,7 +128,7 @@ class Home extends React.Component {
                         <ContainerArticles article={this.props.state.articles.data[0].attributes} />
                     </div>
                 </div>
-                <div className="container-games">
+                <div className="container-articles">
                     <h2 className="flow-text">Latest Articles</h2>
                     <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">

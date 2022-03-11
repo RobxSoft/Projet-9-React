@@ -4,6 +4,7 @@ import {
   Route,
   Routes
 } from 'react-router-dom';
+
 import Home from './views/Home.js'
 import Games from './views/Games.js'
 import GameInfo from './views/GameInfo.js'
@@ -37,6 +38,7 @@ class App extends Component{
     const creators = await ApiUtilities.getCreator();
     const categories = await ApiUtilities.getCategories();
     const discover = await ApiUtilities.getDiscover();
+    const discoverArticles = await ApiUtilities.getDiscoverArticles();
 
     this.setState({
       articles: articles,
@@ -44,31 +46,13 @@ class App extends Component{
       creators: creators,
       categories: categories,
       discover: discover,
+      discoverArticles: discoverArticles,
       loaded: true
     })
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.onRouteChanged();
-    }
-  }
-
-  async onRouteChanged(){
-    console.log(":D");
-    const articles = await ApiUtilities.getArticle();
-    const games = await ApiUtilities.getGames();
-    const creators = await ApiUtilities.getCreator();
-    const categories = await ApiUtilities.getCategories();
-    const discover = await ApiUtilities.getDiscover();
-
-    this.setState({
-      articles: articles,
-      games: games,
-      creators: creators,
-      categories: categories,
-      discover: discover,
-    })
+  onRouteChange(){
+    console.log("omg :D");
   }
 
   render(){
@@ -84,7 +68,7 @@ class App extends Component{
     return (
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home state={this.state}/>}  />
+          <Route exact path='/' element={<Home state={this.state}/>} />
           <Route exact path='/about-us' element={<AboutUs state={this.state}/>} />
           <Route exact path='/games' element={<Games state={this.state}/>} />
           <Route exact path='/articles' element={<Articles state={this.state}/>} />
