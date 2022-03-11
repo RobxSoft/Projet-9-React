@@ -51,13 +51,11 @@ class Home extends React.Component {
         // Create items array
         const games = this.props.state.games.data;
         var PopularGames = Object.keys(this.props.state.games.data).map(function(key) {
-            console.log(key);
             return [key, games[key]];
         });
         
         // Sort the array based on the second element
         PopularGames.sort(function(first, second) {
-            console.log(first[1].attributes, second);
             return second[1].attributes.sales - first[1].attributes.sales;
         });
         
@@ -66,13 +64,22 @@ class Home extends React.Component {
 
         //sales games
         var SalesGames = Object.keys(this.props.state.games.data).map(function(key) {
-            console.log(key);
-            return [key, games[key]];
+            console.log(games[key].attributes);
+            if(games[key].attributes.promotion > 0){
+                return [key, games[key]];
+            }
         });
-        SalesGames.sort(function(first, second) {
-            console.log(first[1].attributes, second);
-            return second[1].attributes.sales - first[1].attributes.sales;
-        });
+        //cleaning up
+        for (const [key, value] of Object.entries(SalesGames)) {
+            if (value === undefined){
+                const index = SalesGames.indexOf(value);
+                if (index > -1) {
+                    SalesGames.splice(index, 1); 
+                }
+            }
+        }
+        
+        console.log(SalesGames);
 
         return(
             <>
@@ -105,7 +112,7 @@ class Home extends React.Component {
                     <h2 className="flow-text">Sales</h2>
                     <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
-                        {SalesGames.map((data,i) => <ContainerSales key={i} data={data[1]}/>)}
+                        {SalesGames.map((data,i) => <ContainerSales key={i} data={data}/>)}
                     </div>
                 </div>
                 <div className="featured-title container center">
