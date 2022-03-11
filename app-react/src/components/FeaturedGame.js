@@ -9,23 +9,17 @@ const LINK = "http://localhost:1337"
 class FeaturedGame extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { selected: false }
-
         this.handleClick = this.handleClick.bind(this);
     }
 
-    componentDidMount(){
-        if(this.props.first){
-            this.setState({selected: true});
+    handleClick(){
+        if(this.props.callback){
+            this.props.callback(this.props.data.id)
         }
     }
 
-    handleClick(event){
-        this.setState({selected: !this.state.selected})
-    }
-
     render(){
-        const color = this.state.selected === true && "grey darken-1" || "grey darken-3"
+        const color = this.props.selected === true && "grey darken-1" || "grey darken-3"
         return (
             <div onClick={this.handleClick} className={`featured-game ${color}`}>
                 <div className="icon" style={{background:`url(${LINK+this.props.data.attributes.icon.data.attributes.url})`}}></div>

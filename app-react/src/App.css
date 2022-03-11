@@ -27,6 +27,17 @@ h2{
   background: rgba(85,85,85,.5);
 }
 
+.featured-shop{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.featured-shop .featured-list .box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 
 .featured-shop, .featured-article{
   margin-top: 10vh;
@@ -49,7 +60,7 @@ h2{
 
 .featured-shop .shadow-img img, .featured-article .simple-img img{
   width: 100%;
-  max-width: 800px;
+  height: 100%;
   position:relative;
   border-radius: 2vh;
   z-index:-1;
@@ -244,18 +255,6 @@ h2{
   height: auto;
 }
 
-.featured-shop{
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.featured-shop .featured-list .box{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
 .featured-game{
   display: flex;
   justify-content: left;
@@ -367,6 +366,7 @@ h2{
 .games-row {
   margin-right: 10% !important;
   margin-top: 50px;
+  margin-left: 10% !important;
 }
 
 .more-stuff {

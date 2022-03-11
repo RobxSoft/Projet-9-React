@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -20,7 +22,8 @@ class GameInfo extends React.Component {
             loaded: false
         }
 
-        this.AddToBasket = this.AddToBasket.bind(this);
+        this.addToBasket = this.addToBasket.bind(this);
+        this.buyGame = this.buyGame.bind(this);
     }
 
     componentDidMount(){
@@ -32,7 +35,11 @@ class GameInfo extends React.Component {
         var instances = M.Carousel.init(elems, {});
     }
 
-    AddToBasket(event){
+    buyGame(){
+        this.addToBasket()
+    }
+
+    addToBasket(event){
         var existingEntries = JSON.parse(localStorage.getItem('basket')) || [];
         var item = existingEntries.find(item=>item.id === this.state.id);
         if (item){
@@ -55,11 +62,17 @@ class GameInfo extends React.Component {
         }
 
         const images = [];
+        const categories = [];
+
+        //images handler
         for (const [key, value] of Object.entries(this.state.game.attributes.images.data)) {
             images.push(LINK+value.attributes.url)
-        }
+        };
 
-        console.log(this.state.game.attributes.categories.data);
+        //categories handler
+        for (const [key, value] of Object.entries(this.state.game.attributes.categories.data)) {
+            categories.push(value)
+        };
 
         return(
             <React.Fragment>
@@ -78,7 +91,7 @@ class GameInfo extends React.Component {
                             />
                             <h2>{this.state.game.attributes.main_description}</h2>
                             <p>Type</p>
-                            <a>{this.state.game.attributes.categories.data[0].attributes.name}</a>  
+                            {categories.map((category,i) => <Link key={i} to={`/games/${category.attributes.name}`} >{category.attributes.name}</Link>)}
                             <p>{this.state.game.attributes.description}</p>
                         </div>
                         <div className="col left-part s12 m12 l4">
@@ -88,8 +101,8 @@ class GameInfo extends React.Component {
                             
                             <div className="container">
                                 <p>{this.state.game.attributes.price}$</p>
-                                <div><a className="purchase waves-effect waves-light btn-large ">PURCHASE</a></div>
-                                <div><a onClick={this.AddToBasket} className="add-basket waves-effect waves-light btn-large">ADD TO BASKET</a></div>
+                                <div><Link to="/basket" onClick={this.buyGame} className="purchase waves-effect waves-light btn-large">PURCHASE</Link></div>
+                                <div><a onClick={this.addToBasket} className="add-basket waves-effect waves-light btn-large">ADD TO BASKET</a></div>
                                 <div className="row">
                                     <div className="col border s12 m12 l12">
                                         <div className="col left s6 m6 l6"><p>Developper</p></div>
