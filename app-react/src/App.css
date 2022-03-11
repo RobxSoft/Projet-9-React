@@ -8,6 +8,7 @@ h2{
   font-weight: bold !important;
   color: #FFFFFF;
 }
+
 /* SCROLLBAR CSS */
 ::-webkit-scrollbar {
   width: 5px;
@@ -262,6 +263,7 @@ h2{
   width: 100%;
   background-color: #5C636A;
   border-radius: 1vh;
+  cursor: pointer;
 }
 
 .featured-game .icon{
@@ -349,7 +351,7 @@ h2{
   border-radius: 1vh;
   background-color: #343434;
   color: #FFFFFF;
-  padding: 2%;
+  padding: 2% !important;
   position: relative;
 }
 
@@ -439,6 +441,7 @@ h2{
   border-radius: 1vh;
   margin-bottom: 40px !important;
   padding: 0 !important;
+  padding-bottom: 5px !important;
   margin-right: 20px;
   margin-left: 20px;
 }
@@ -752,4 +755,12 @@ h2{
   border: none !important;
   background-color: #262626 !important;
   border-bottom: none !important;
+}
+
+.secondary-content {
+  cursor: pointer;
+}
+
+.side {
+  z-index: 9999 !important;
 }

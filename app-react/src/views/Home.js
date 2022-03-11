@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import ApiUtilities from '../api/ApiUtilities.js';
 
@@ -87,8 +87,8 @@ class Home extends React.Component {
         });
         
         // Create a new array with only the first 5 items
-        PopularGames.slice(0, 5)
-        PopularArticles.slice(0, 5)
+        PopularGames = PopularGames.slice(0, 5);
+        PopularArticles = PopularArticles.slice(0, 5)
 
         //sales games
         var SalesGames = Object.keys(this.state.games.data).map(function(key) {
@@ -99,6 +99,7 @@ class Home extends React.Component {
         SalesGames.sort(function(first, second) {
             return second[1].attributes.sales - first[1].attributes.sales;
         });
+        SalesGames = SalesGames.slice(0, 10)
         //cleaning up
         for (const [key, value] of Object.entries(SalesGames)) {
             if (value === undefined){

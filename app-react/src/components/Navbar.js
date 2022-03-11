@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
-import {Dropdown} from 'react-materialize';
+import { Button, Modal, Row, Col, Dropdown, Divider, Icon, SideNav, SideNavItem } from 'react-materialize';
 import {Link} from 'react-router-dom';
 
 import Logo from '../img/Logo_Title.png';
@@ -88,11 +88,25 @@ class Navbar extends React.Component {
                     <div className="nav-wrapper">
                     <Link className="left hide-on-med-and-down" to="/"><img className="responsive-img" src={WhiteLogo}/></Link>
                     <ul className="hide-on-med-and-down">
+                        <SideNav className="side" id="SideNav-43" options={{draggable: true}}trigger={<MaterialIcon className="material-icons" icon="menu"/>}>
+                        <SideNavItem>
+                        <ul>
+                            <li className=""><Link to="/">Home</Link></li>
+                            <li className=""><Link to="/games">Games</Link></li>
+                            <li className=""><Link to="/articles">Articles</Link></li>
+                            <li className=""><Link to="/about-us">About Us</Link></li>
+                            <li>
+                                <Dropdown id="profile_dropdown" trigger={<a>Profile</a>} >
+                                <this.DropdownHandler isLoggedIn={this.state.user && this.state.user.Bearer} />
+                                </Dropdown>
+                            </li>
+                        </ul>
+                        </SideNavItem>
+                        </SideNav>
                         <li className="center"><Link to="/">Shop</Link></li>
                         <li className="center"><Link to="/about-us">About Us</Link></li>
                     </ul>
                     <Link className="brand-logo center" to="/"><img className="responsive-img" src={Logo}/></Link>
-                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
                     <ul className="hide-on-med-and-down right">
                         <li className="center"><Link to="/basket">Basket</Link></li>
                         <li className="center profile">
@@ -117,13 +131,6 @@ class Navbar extends React.Component {
                         </ul>
                     </div>
                 </nav>
-        
-                <ul className="sidenav" id="mobile-demo">
-                <li className="center"><Link to="/">Shop</Link></li>
-                <li className="center"><Link to="/about-us">About Us</Link></li>
-                <li className="center"><Link to="/games">Games</Link></li>
-                <li className="center"><Link to="/articles">Articles</Link></li>
-                </ul>
             </>
         )
     }
