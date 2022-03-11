@@ -22,7 +22,6 @@ class Basket extends React.Component {
 
     componentDidMount(){
         var basketArray = JSON.parse(localStorage.getItem('basket')) || [];
-        console.log(basketArray);
         this.setState({loaded: true, basket: basketArray});
     }
 
@@ -30,7 +29,6 @@ class Basket extends React.Component {
 
         var data =  JSON.parse(localStorage.getItem('user'));
         var isLogged = data && data.Bearer;
-        console.log(data);
 
         if(!isLogged){
             M.toast({html: 'Login!'});
@@ -99,7 +97,6 @@ class Basket extends React.Component {
             }
             this.setState({amount: item.amount});
         }
-        console.log(existingEntries);
         localStorage.setItem('basket', JSON.stringify(existingEntries));
         M.toast({html: 'Deleted item from basket!'});
     }

@@ -23,9 +23,7 @@ class Order extends React.Component {
             //TODO
             return;
         }
-        console.log(data.User.id);
         const userData = await ApiUtilities.getUser(data.User.id);
-        console.log(userData);
     }
 
     render(){

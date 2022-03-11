@@ -38,7 +38,6 @@ class FeaturedArticle extends React.Component {
     }
 
     render(){
-        console.log(this.props);
         if(this.props.id%2==0){
             return (
                 <div className="featured-article row ">

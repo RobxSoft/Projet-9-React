@@ -51,10 +51,6 @@ class App extends Component{
     })
   }
 
-  onRouteChange(){
-    console.log("omg :D");
-  }
-
   render(){
     if (this.state.loaded == false){
       return (

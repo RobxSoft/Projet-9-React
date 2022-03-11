@@ -7,7 +7,6 @@ const LINK = "http://localhost:1337";
 
 class ContainerArticles extends React.Component {
     render(){
-        console.log(this.props);
         return (
             <Link className="link" to={`/articleinfo/${this.props.id}`}>
             <div className="article-container">

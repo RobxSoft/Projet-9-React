@@ -28,7 +28,6 @@ class ArticleInfo extends React.Component {
 
 
     render(){
-        console.log(this.state);
         if (this.state.loaded == false){
             return <Loader />
         }

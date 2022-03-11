@@ -8,7 +8,6 @@ import CreatorFrame from '../components/CreatorFrame';
 class AboutUs extends React.Component {
     constructor(props) {
         super(props)
-        console.log(props.state);
         this.state = {
             creators: props.state.creators,
             loaded: props.state.loaded

@@ -12,14 +12,11 @@ class BasketItem extends React.Component {
         this.state = {
             id: this.props.data.id,
         }
-        console.log(this.state);
         this.DeleteFromBasket = this.DeleteFromBasket.bind(this);
     }
 
     DeleteFromBasket(){
-        console.log(this);
         if(this.props.data.callback){
-            console.log("fire");
             this.props.data.callback(this.state.id);
         }
     }

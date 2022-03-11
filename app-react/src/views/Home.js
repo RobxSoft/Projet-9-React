@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import FeaturedGame from '../components/FeaturedGame';
 
-import WS_Background from '../img/worldseed_thumbnail.jpeg';
 import ContainerPopular from '../components/ContainerPopular';
 import ContainerSales from '../components/ContainerSales';
 import ContainerArticles from '../components/ContainerArticles';
@@ -43,7 +42,6 @@ class Home extends React.Component {
             featuredSelected: id,
             featured: this.props.state.discover.data[id-1].attributes.game.data
         });
-        console.log(this.state);
     }
 
     render(){
@@ -81,7 +79,6 @@ class Home extends React.Component {
         // Create a new array with only the first 5 items
         PopularGames.slice(0, 5)
         PopularArticles.slice(0, 5)
-        console.log(PopularArticles);
 
         //sales games
         var SalesGames = Object.keys(this.props.state.games.data).map(function(key) {
@@ -102,8 +99,6 @@ class Home extends React.Component {
             }
         }
         
-        console.log(SalesGames);
-
         return(
             <>
                 <Navbar callback={this.handleChange}/>
