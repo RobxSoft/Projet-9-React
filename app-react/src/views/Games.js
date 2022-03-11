@@ -34,8 +34,12 @@ class Games extends React.Component {
 
     async componentDidMount(){
         const games = await ApiUtilities.getGames();
-
         this.setState({games: games, loaded: true});
+
+        const filter = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+        if(filter!="games"&&filter!=""){
+            this.handleCategory(filter, true);
+        }
     }
 
     handleChange = (text) => {

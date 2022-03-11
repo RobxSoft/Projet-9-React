@@ -42,7 +42,6 @@ class Home extends React.Component {
             featuredSelected: id,
             featured: this.props.state.discover.data[id-1].attributes.game.data
         });
-        console.log(this.state);
     }
 
     render(){
@@ -80,11 +79,12 @@ class Home extends React.Component {
         // Create a new array with only the first 5 items
         PopularGames.slice(0, 5)
         PopularArticles.slice(0, 5)
-        console.log(PopularArticles);
 
         //sales games
         var SalesGames = Object.keys(this.props.state.games.data).map(function(key) {
-            return [key, games[key]];
+            if(games[key].attributes.promotion > 0){
+                return [key, games[key]];
+            }
         });
         SalesGames.sort(function(first, second) {
             return second[1].attributes.sales - first[1].attributes.sales;
@@ -99,8 +99,6 @@ class Home extends React.Component {
             }
         }
         
-        console.log(SalesGames);
-
         return(
             <>
                 <Navbar callback={this.handleChange}/>
