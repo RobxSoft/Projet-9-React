@@ -19,8 +19,8 @@ class Footer extends React.Component {
                         <div className="row">
                             <div className="col l4 s12">
                                 <ul>
-                                <li className="is-footer"><a className="grey-text text-lighten-3" href="#!">Legal Notice</a></li>
-                                <li className="is-footer"><p className="grey-text text-lighten-3" href="#!">Contact Us</p></li>
+                                <li className="is-footer"><a className="grey-text text-lighten-3" href="https://en.wikipedia.org/wiki/Wikipedia:Legal_disclaimer">Legal Notice</a></li>
+                                <li className="is-footer"><p className="grey-text text-lighten-3">Contact Us</p></li>
                                 <li><p href="#!" className="color">(+33)6 00 00 00 00</p></li>
                                 <li><p href="#!" className="color">contact@fireball.com</p></li>
                                 </ul>
@@ -41,8 +41,8 @@ class Footer extends React.Component {
                             </div>
                             <div className="col l4 s12">
                                 <ul>
-                                <li className="is-footer"><a className="grey-text text-lighten-3" href="#!">Terms of Service</a></li>
-                                <li className="is-footer"><a className="grey-text text-lighten-3" href="#!">Privacy Policy</a></li>
+                                <li className="is-footer"><a className="grey-text text-lighten-3" href="https://en.wikipedia.org/wiki/Terms_of_service">Terms of Service</a></li>
+                                <li className="is-footer"><a className="grey-text text-lighten-3" href="https://en.wikipedia.org/wiki/Privacy_policy">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>

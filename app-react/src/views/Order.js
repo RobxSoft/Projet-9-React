@@ -1,4 +1,5 @@
 import React from 'react';
+
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -11,7 +12,8 @@ class Order extends React.Component {
         super(props)
         this.state = {
             loaded: false,
-            orders: [],
+            orders: null,
+            user: null
         }
     }
 
@@ -20,10 +22,11 @@ class Order extends React.Component {
         var isLogged = data && data.Bearer;
 
         if(!isLogged){
-            //TODO
             return;
         }
-        const userData = await ApiUtilities.getUser(data.User.id);
+
+        const orders = await ApiUtilities.getOrders();
+        this.setState({loaded: true, orders: orders.data, user:data});
     }
 
     render(){
@@ -36,16 +39,33 @@ class Order extends React.Component {
                 </>
             )
         }
+
+        const orders = this.state.orders
+        const user_id = this.state.user.User.id;
+
+        var showOrders = Object.keys(orders).map(function(key) {
+            if(orders[key].attributes.user.data.id === user_id){
+                return [key, orders[key]];
+            }
+        });
+        //cleaning up
+        for (const [key, value] of Object.entries(showOrders)) {
+            if (value === undefined){
+                const index = showOrders.indexOf(value);
+                if (index > -1) {
+                    showOrders.splice(index, 1); 
+                }
+            }
+        }
+        console.log(showOrders);
+
         return(
             <>
                 <Navbar/>
                 <div className="container-games">
                     <h2 className="flow-text center">Your Orders</h2>
                     <ul className="collection">
-                        <OrderFrame />
-                        <OrderFrame />
-                        <OrderFrame />
-                        <OrderFrame />
+                        {showOrders.map((data,i) => <OrderFrame key={i} data={data}/>)}
                     </ul>
                 </div>
                 <Footer />

@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
+import ApiUtilities from '../api/ApiUtilities.js';
+
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import Logo from '../img/Logo_Title.png';
 import Loader from '../components/Loader';
 
 import M from 'materialize-css';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
 import { Carousel } from 'react-materialize';
 
 const LINK = "http://localhost:1337";
@@ -26,10 +26,11 @@ class GameInfo extends React.Component {
         this.buyGame = this.buyGame.bind(this);
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
-        const game = this.props.state.games.data.find(game=>game.id===parseInt(id))
-        this.setState({game: game, loaded: true, id: parseInt(id)})
+        const game = await ApiUtilities.getGames(id)
+
+        this.setState({game: game.data, loaded: true, id: parseInt(id)})
 
         var elems = document.querySelectorAll('.carousel');
         var instances = M.Carousel.init(elems, {});
@@ -58,7 +59,13 @@ class GameInfo extends React.Component {
 
     render(){
         if (this.state.loaded == false){
-            return <Loader />
+            return (
+                <>
+                    <Navbar/>
+                    <Loader/>
+                    <Footer/>
+                </>
+            )
         }
 
         const images = [];
@@ -75,7 +82,7 @@ class GameInfo extends React.Component {
         };
 
         return(
-            <React.Fragment>
+            <>
                 <Navbar/>
                 <div className="gameinfo-container white-text">
                     <div className="row">
@@ -126,7 +133,7 @@ class GameInfo extends React.Component {
                     </div>
                 </div>
                 <Footer />
-            </React.Fragment>
+            </>
         )
     }
 }

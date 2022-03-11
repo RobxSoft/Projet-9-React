@@ -738,3 +738,18 @@ h2{
 .collection .collection-item a i{
   margin: 0% !important;
 }
+
+.collapsible{
+  border: none !important;
+}
+
+.collapsible-header {
+  border: none !important;
+  background-color: #262626 !important;
+}
+
+.collapsible-body {
+  border: none !important;
+  background-color: #262626 !important;
+  border-bottom: none !important;
+}

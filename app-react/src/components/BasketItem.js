@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 
 import 'materialize-css/dist/css/materialize.min.css';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
-import App from '../App.js';
 
 const LINK = "http://localhost:1337";
 

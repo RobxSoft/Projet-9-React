@@ -105,15 +105,16 @@ class Navbar extends React.Component {
                 </nav>
                 <nav className="navdown">
                     <div className="nav-wrapper">
-                    <div className="searchbar white valign-wrapper">
-                        <div className="search-icon"><MaterialIcon icon="search"/></div>
-                        <input className="search-input" placeholder="Search..." value={this.state.search} onChange={(event) => this.handleSearchChange(event)}></input>
-                    </div>
-                    <ul className="hide-on-med-and-down">
-                        <li className="center"><Link to="/">Home</Link></li>
-                        <li className="center"><Link to="/games">Games</Link></li>
-                        <li className="center"><Link to="/articles">Articles</Link></li>
-                    </ul>
+                        {this.props.callback && <div className="searchbar white valign-wrapper">
+                                <div className="search-icon"><MaterialIcon icon="search"/></div>
+                                <input className="search-input" placeholder="Search..." value={this.state.search} onChange={(event) => this.handleSearchChange(event)}></input>
+                            </div>
+                        }
+                        <ul className="hide-on-med-and-down">
+                            <li className="center"><Link to="/">Home</Link></li>
+                            <li className="center"><Link to="/games">Games</Link></li>
+                            <li className="center"><Link to="/articles">Articles</Link></li>
+                        </ul>
                     </div>
                 </nav>
         

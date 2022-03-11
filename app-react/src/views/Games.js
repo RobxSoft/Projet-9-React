@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { withRouter } from "react-router-dom";
 
 import '../App.css';
 import Navbar from '../components/Navbar'
@@ -7,9 +6,9 @@ import Footer from '../components/Footer'
 
 import GameFrame from '../components/GameFrame';
 import Checkbox from '../components/Checkbox';
+import Loader from '../components/Loader';
 
 import ApiUtilities from '../api/ApiUtilities.js';
-import Loader from '../components/Loader';
 
 class Games extends React.Component {
     constructor(props) {
@@ -28,6 +27,7 @@ class Games extends React.Component {
                 }
             },
             loaded: false,
+            urlCategory: '',
         }
 
         this.ShowFilters = this.ShowFilters.bind(this);
@@ -39,6 +39,7 @@ class Games extends React.Component {
 
         const filter = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         if(filter!="games"&&filter!=""){
+            this.setState({urlCategory: filter})
             this.handleCategory(filter, true);
         }
     }
@@ -75,7 +76,7 @@ class Games extends React.Component {
     }
 
     ShowFilters(){
-        const filter = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+        const filter = this.state.urlCategory;
         if(filter!="games" && filter!=''){return(<div className="col s6 m1 l1"></div>);}
 
         return(
@@ -98,11 +99,7 @@ class Games extends React.Component {
     render(){
         if (this.state.loaded == false){
             return (
-                <>
-                    <Navbar/>
-                    <Loader/>
-                    <Footer/>
-                </>
+                <Loader/>
             )
         }
         const showGames = this.state.games.data.filter(
@@ -136,13 +133,12 @@ class Games extends React.Component {
             }
         }
         return(
-            
             <>
                 <Navbar callback={this.handleChange}/>
                 <div className="row games-row">
                     <this.ShowFilters/>
                     <div className="container-games col s12 m10 l10">
-                        <h2 className="flow-text">Games</h2>
+                        <h2 className="flow-text">{`${this.state.urlCategory} Games`}</h2>
                         {this.state.games && showGames.map((game,i) => <GameFrame key={i} game={game}/>)}
                     </div>
                 </div>

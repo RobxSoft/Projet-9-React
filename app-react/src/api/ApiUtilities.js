@@ -1,5 +1,8 @@
-module.exports.getArticle = async function(){
-    const response = await fetch('http://localhost:1337/api/articles?populate=*', {
+module.exports.getArticle = async function(id){
+    var url = 'http://localhost:1337/api/articles?populate=*';
+    if(id) url = `http://localhost:1337/api/articles/${id}?populate=*`;
+
+    const response = await fetch(url, {
         method: 'GET', 
         headers: {
             'Accept': 'application/json', 
@@ -11,8 +14,11 @@ module.exports.getArticle = async function(){
     return articles;
 }
 
-module.exports.getGames = async function(){
-    const response = await fetch('http://localhost:1337/api/games?populate=*', {
+module.exports.getGames = async function(id){
+    var url = 'http://localhost:1337/api/games?populate=*';
+    if(id) url = `http://localhost:1337/api/games/${id}?populate=*`;
+
+    const response = await fetch(url, {
         method: 'GET', 
         headers: {
             'Accept': 'application/json', 
@@ -85,4 +91,16 @@ module.exports.getDiscoverArticles = async function(){
     })
     const discoverArticles = await response.json();
     return discoverArticles;
+}
+
+module.exports.getOrders = async function(){
+    const response = await fetch(`http://localhost:1337/api/orders?populate=*`, {
+        method: 'GET', 
+        headers: {
+            'Accept': 'application/json', 
+            'Content-Type':'application/json'
+        }
+    })
+    const orders = await response.json();
+    return orders;
 }

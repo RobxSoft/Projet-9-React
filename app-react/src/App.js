@@ -5,6 +5,7 @@ import {
   Routes
 } from 'react-router-dom';
 
+//website views
 import Home from './views/Home.js'
 import Games from './views/Games.js'
 import GameInfo from './views/GameInfo.js'
@@ -24,8 +25,6 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state= {
-       articles: [],
-       games: [],
        creators: [],
        categories: [],
        loaded: false
@@ -33,16 +32,13 @@ class App extends Component{
   }
 
   async componentDidMount () {
-    const articles = await ApiUtilities.getArticle();
-    const games = await ApiUtilities.getGames();
+    //loading every stuff needed to start the website 
     const creators = await ApiUtilities.getCreator();
     const categories = await ApiUtilities.getCategories();
     const discover = await ApiUtilities.getDiscover();
     const discoverArticles = await ApiUtilities.getDiscoverArticles();
 
     this.setState({
-      articles: articles,
-      games: games,
       creators: creators,
       categories: categories,
       discover: discover,
@@ -52,6 +48,7 @@ class App extends Component{
   }
 
   render(){
+    //website hasn't loaded yet, starting loading screen
     if (this.state.loaded == false){
       return (
         <>
@@ -61,6 +58,8 @@ class App extends Component{
         </>
       )
     }
+
+    //starting main router
     return (
       <Router>
         <Routes>

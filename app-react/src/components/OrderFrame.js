@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
-import image from '../img/elden_ring.jpg';
+import { Collapsible, CollapsibleItem } from 'react-materialize';
 
 const LINK = "http://localhost:1337"
 
@@ -13,15 +11,14 @@ class OrderFrame extends React.Component {
     }
 
     render(){
+        console.log(this.props);
         return (
-            <div className="order-container row z-depth-3">
-                <div className="col s12 m4 l4 center">
-                    <img className="responsive-img" src={image}/>
-                </div>
-                <div className="col s12 m8 l8">
-                    <p>Order : zaibfakzjfbazkjbazjbazjbjlg</p>
-                    <h5>TOTAL : 00$</h5>
-                </div>
+            <div className="z-depth-3">
+                <Collapsible className>
+                    <CollapsibleItem header={`Order ${this.props.data[1].id} | TOTAL ${this.props.data[1].attributes.price}$`} node="div" className="black">
+                        {this.props.data[1].attributes.games.data.map((data,i) => <p key={i}>{data.attributes.title}</p>)}
+                    </CollapsibleItem>
+                </Collapsible>
             </div>
         )
     }

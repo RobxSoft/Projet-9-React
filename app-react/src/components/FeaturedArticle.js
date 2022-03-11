@@ -2,10 +2,6 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
-import WS_Background from '../img/worldseed_thumbnail.jpeg';
-
 
 const LINK = "http://localhost:1337"
 

@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
+import ApiUtilities from '../api/ApiUtilities.js';
+
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import WS_Background from '../img/worldseed_thumbnail.jpeg';
-import ContainerArticles from '../components/ContainerArticles';
 import Loader from '../components/Loader';
 
-
 const LINK = "http://localhost:1337"
-
-
 
 class ArticleInfo extends React.Component {
     constructor(props) {
@@ -20,10 +17,12 @@ class ArticleInfo extends React.Component {
         }     
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         const id = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
-        const article = this.props.state.articles.data.find(article=>article.id===parseInt(id))
-        this.setState({article: article, loaded: true})
+        //const article = this.props.state.articles.data.find(article=>article.id===parseInt(id))
+        const article = await ApiUtilities.getArticle(id)
+
+        this.setState({article: article.data, loaded: true})
     }
 
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import ApiUtilities from '../api/ApiUtilities.js';
+
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -12,6 +14,7 @@ class Basket extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            games: {},
             loaded: false,
             basket: []
         }
@@ -20,9 +23,11 @@ class Basket extends React.Component {
         this.DeleteFromBasket = this.DeleteFromBasket.bind(this);
     }
 
-    componentDidMount(){
+    async componentDidMount(){
+        const games = await ApiUtilities.getGames();
         var basketArray = JSON.parse(localStorage.getItem('basket')) || [];
-        this.setState({loaded: true, basket: basketArray});
+
+        this.setState({loaded: true, basket: basketArray, games:games});
     }
 
     async Order(){
@@ -35,15 +40,20 @@ class Basket extends React.Component {
             return;
         }
 
+        //creating an array with all game id inside
         var gamesID = [];
+        var totalPrice = 0;
+
         for (const [key, value] of Object.entries(this.state.basket)) {
             gamesID.push(value.id)
+            totalPrice += this.state.games.data.find(game=>game.id===value.id).attributes.price;
         }
         if(gamesID.length === 0){
             M.toast({html: 'Basket is empty!'});
             return;
         }
 
+        //posting to api orders
         const orderDB = await fetch(`${LINK}/api/orders`, {
             method: "POST",
             headers: {
@@ -54,7 +64,8 @@ class Basket extends React.Component {
             body: JSON.stringify({
                 data: {
                     user: [data.User.id],
-                    games: gamesID
+                    games: gamesID,
+                    price: totalPrice
                 }
             }),
         })
@@ -67,6 +78,7 @@ class Basket extends React.Component {
 
             //incremeting each product sell amount.
             for (const [key, id] of Object.entries(gamesID)) {
+                const gameData = await ApiUtilities.getGames(id);
                 const orderDB = await fetch(`${LINK}/api/games/${id}`, {
                     method: "PUT",
                     headers: {
@@ -76,7 +88,7 @@ class Basket extends React.Component {
                     },
                     body: JSON.stringify({
                         data: {
-                            sales: 1,
+                            sales: gameData.data.attributes.sales+1,
                         }
                     }),
                 })
@@ -114,7 +126,7 @@ class Basket extends React.Component {
 
         var totalPrice = 0
         for (const [key, value] of Object.entries(this.state.basket)) {
-            totalPrice += this.props.state.games.data.find(game=>game.id===value.id).attributes.price;
+            totalPrice += this.state.games.data.find(game=>game.id===value.id).attributes.price;
         }
 
         return(
@@ -127,7 +139,7 @@ class Basket extends React.Component {
                             {this.state.basket && this.state.basket.map((game,i) => <BasketItem key={i} data={{
                                 id: game.id,
                                 amount: game.amount,
-                                gameData: this.props.state.games.data.find(item=>item.id === game.id).attributes,
+                                gameData: this.state.games.data.find(item=>item.id === game.id).attributes,
                                 callback: this.DeleteFromBasket
                             }}/>)}
                         </ul>
