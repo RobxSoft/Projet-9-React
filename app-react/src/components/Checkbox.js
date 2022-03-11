@@ -13,8 +13,6 @@ class Checkbox extends React.Component {
     }
 
     handleClick(event){
-        console.log(event.target.checked);
-
         if (this.state.callback){
             this.state.callback(this.props.data.attributes.name, event.target.checked)
         }

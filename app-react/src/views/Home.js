@@ -20,7 +20,10 @@ class Home extends React.Component {
         this.state = {
             loaded: false,
             featured: null,
+            featuredSelected: 1
         }
+
+        this.handleFeaturedClick = this.handleFeaturedClick.bind(this);
     }
     
     componentDidMount(){
@@ -33,6 +36,14 @@ class Home extends React.Component {
 
     handleChange = (text) => {
         this.props.history.push('/games')
+    }
+
+    handleFeaturedClick(id){
+        this.setState({
+            featuredSelected: id,
+            featured: this.props.state.discover.data[id-1].attributes.game.data
+        });
+        console.log(this.state);
     }
 
     render(){
@@ -48,20 +59,15 @@ class Home extends React.Component {
         
         const featureGameInfo = this.props.state.games.data.find(game=>game.id === this.state.featured.id);
 
-        // Create items array
+        //handling popular games sorting
         const games = this.props.state.games.data;
         var PopularGames = Object.keys(this.props.state.games.data).map(function(key) {
-            console.log(key);
             return [key, games[key]];
         });
         
-        // Sort the array based on the second element
         PopularGames.sort(function(first, second) {
-            console.log(first[1].attributes, second);
             return second[1].attributes.sales - first[1].attributes.sales;
         });
-        
-        // Create a new array with only the first 5 items
         PopularGames.slice(0, 5)
 
         return(
@@ -73,13 +79,13 @@ class Home extends React.Component {
                             <img src={LINK+featureGameInfo.attributes.images.data[2].attributes.url} alt=""/>
                         </div>
                         <h2 className="flow-text">{this.state.featured.attributes.title}</h2>
-                        <p>{this.state.featured.attributes.description}</p>
+                        <p>{this.state.featured.attributes.main_description}</p>
                         <Link className="btn z-depth-0 waves-effect waves-light btn-medium" to={`/gameinfo/${this.state.featured.id}`}>Buy</Link>
                     </div>
 
                     <div className="featured-list col s12 l4">
                         <div className="box">
-                            {this.props.state.discover && this.props.state.discover.data.map((discover,i) => <FeaturedGame key={i} first={i===0} data={featureGameInfo}/>)}
+                            {this.props.state.discover && this.props.state.discover.data.map((discover,i) => <FeaturedGame key={i} callback={this.handleFeaturedClick} selected={discover.id===this.state.featuredSelected} data={this.props.state.games.data.find(game=>game.id === discover.id)}/>)}
                         </div>
                     </div>
                 </div>

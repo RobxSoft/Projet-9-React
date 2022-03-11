@@ -8,7 +8,6 @@ const LINK = "http://localhost:1337";
 
 class ContainerPopular extends React.Component {
     render(){
-        console.log(this.props.data);
         return (
             <div className="popular-container">
                 <img src={LINK+this.props.data.attributes.icon.data.attributes.url}/>

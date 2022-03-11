@@ -130,7 +130,8 @@ class Basket extends React.Component {
                             {this.state.basket && this.state.basket.map((game,i) => <BasketItem key={i} data={{
                                 id: game.id,
                                 amount: game.amount,
-                                gameData: this.props.state.games.data.find(item=>item.id === game.id).attributes
+                                gameData: this.props.state.games.data.find(item=>item.id === game.id).attributes,
+                                callback: this.DeleteFromBasket
                             }}/>)}
                         </ul>
                     </div>
