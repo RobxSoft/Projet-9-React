@@ -689,6 +689,7 @@ h2{
   border: 0px !important;
   text-align: left !important;
   margin: 0 !important;
+  line-height: 20px !important; 
 }
 
 .link:hover {

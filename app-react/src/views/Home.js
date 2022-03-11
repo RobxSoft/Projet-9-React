@@ -64,19 +64,45 @@ class Home extends React.Component {
         var PopularGames = Object.keys(this.props.state.games.data).map(function(key) {
             return [key, games[key]];
         });
+
+        const articles = this.props.state.articles.data;
+        var PopularArticles = Object.keys(this.props.state.articles.data).map(function(key) {
+            return [key, articles[key]];
+        });
         
         PopularGames.sort(function(first, second) {
             return second[1].attributes.sales - first[1].attributes.sales;
         });
+
+        PopularArticles.sort(function(first, second) {
+            return second[1].attributes.watch - first[1].attributes.watch;
+        });
+        
+        // Create a new array with only the first 5 items
         PopularGames.slice(0, 5)
+        PopularArticles.slice(0, 5)
+        console.log(PopularArticles);
 
         //sales games
         var SalesGames = Object.keys(this.props.state.games.data).map(function(key) {
-            return [key, games[key]];
+            if(games[key].attributes.promotion > 0){
+                return [key, games[key]];
+            }
         });
         SalesGames.sort(function(first, second) {
             return second[1].attributes.sales - first[1].attributes.sales;
         });
+        //cleaning up
+        for (const [key, value] of Object.entries(SalesGames)) {
+            if (value === undefined){
+                const index = SalesGames.indexOf(value);
+                if (index > -1) {
+                    SalesGames.splice(index, 1); 
+                }
+            }
+        }
+        
+        console.log(SalesGames);
 
         return(
             <>
@@ -107,9 +133,8 @@ class Home extends React.Component {
                 
                 <div className="container-articles ">
                     <h2 className="flow-text">Sales</h2>
-                    <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
-                        {SalesGames.map((data,i) => <ContainerSales key={i} data={data[1]}/>)}
+                        {SalesGames.map((data,i) => <ContainerSales key={i} data={data}/>)}
                     </div>
                 </div>
                 <div className="featured-title container center">
@@ -122,20 +147,7 @@ class Home extends React.Component {
                     <h2 className="flow-text">Popular Articles</h2>
                     <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
-                        <ContainerArticles article={this.props.state.articles.data[0].attributes} />
-                        <ContainerArticles article={this.props.state.articles.data[0].attributes} />
-                        <ContainerArticles article={this.props.state.articles.data[0].attributes} />
-                        <ContainerArticles article={this.props.state.articles.data[0].attributes} />
-                    </div>
-                </div>
-                <div className="container-articles">
-                    <h2 className="flow-text">Latest Articles</h2>
-                    <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
-                    <div className="send-game-container">
-                    <ContainerArticles article={this.props.state.articles.data[0].attributes} />
-                    <ContainerArticles article={this.props.state.articles.data[0].attributes} />
-                    <ContainerArticles article={this.props.state.articles.data[0].attributes} />
-                    <ContainerArticles article={this.props.state.articles.data[0].attributes} />
+                        {PopularArticles.map((data,i) => <ContainerArticles key={i} data={data[1]}/>)}
                     </div>
                 </div>
                 <Footer />
