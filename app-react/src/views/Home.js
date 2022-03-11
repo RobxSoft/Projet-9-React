@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 import '../App.css';
@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import FeaturedGame from '../components/FeaturedGame';
 
-import WS_Background from '../img/worldseed_thumbnail.jpeg';
 import ContainerPopular from '../components/ContainerPopular';
 import ContainerSales from '../components/ContainerSales';
 import ContainerArticles from '../components/ContainerArticles';
@@ -47,7 +46,7 @@ class Home extends React.Component {
     }
 
     render(){
-        if (this.state.loaded == false){
+        if (this.state.loaded === false){
             return (
                 <>
                     <Navbar/>

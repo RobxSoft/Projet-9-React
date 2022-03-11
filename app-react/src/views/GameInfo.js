@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import '../App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import Logo from '../img/Logo_Title.png';
 import Loader from '../components/Loader';
 
 import M from 'materialize-css';
