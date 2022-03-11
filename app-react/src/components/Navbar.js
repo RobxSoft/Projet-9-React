@@ -26,10 +26,8 @@ class Navbar extends React.Component {
     }
 
     componentDidMount(){
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems, {});
-        });
+        var elems = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(elems, {});
         
         var data = localStorage.getItem('user');
         this.setState({
@@ -88,25 +86,11 @@ class Navbar extends React.Component {
                     <div className="nav-wrapper">
                     <Link className="left hide-on-med-and-down" to="/"><img className="responsive-img" src={WhiteLogo}/></Link>
                     <ul className="hide-on-med-and-down">
-                        <SideNav className="side" id="SideNav-43" options={{draggable: true}}trigger={<MaterialIcon className="material-icons" icon="menu"/>}>
-                        <SideNavItem>
-                        <ul>
-                            <li className=""><Link to="/">Home</Link></li>
-                            <li className=""><Link to="/games">Games</Link></li>
-                            <li className=""><Link to="/articles">Articles</Link></li>
-                            <li className=""><Link to="/about-us">About Us</Link></li>
-                            <li>
-                                <Dropdown id="profile_dropdown" trigger={<a>Profile</a>} >
-                                <this.DropdownHandler isLoggedIn={this.state.user && this.state.user.Bearer} />
-                                </Dropdown>
-                            </li>
-                        </ul>
-                        </SideNavItem>
-                        </SideNav>
                         <li className="center"><Link to="/">Shop</Link></li>
                         <li className="center"><Link to="/about-us">About Us</Link></li>
                     </ul>
                     <Link className="brand-logo center" to="/"><img className="responsive-img" src={Logo}/></Link>
+                    <a href="#" data-target="mobile-demo" className="sidenav-trigger"><MaterialIcon className="material-icons" icon="menu"/></a>
                     <ul className="hide-on-med-and-down right">
                         <li className="center"><Link to="/basket">Basket</Link></li>
                         <li className="center profile">
@@ -119,18 +103,24 @@ class Navbar extends React.Component {
                 </nav>
                 <nav className="navdown">
                     <div className="nav-wrapper">
-                        {this.props.callback && <div className="searchbar white valign-wrapper">
-                                <div className="search-icon"><MaterialIcon icon="search"/></div>
-                                <input className="search-input" placeholder="Search..." value={this.state.search} onChange={(event) => this.handleSearchChange(event)}></input>
-                            </div>
-                        }
-                        <ul className="hide-on-med-and-down">
-                            <li className="center"><Link to="/">Home</Link></li>
-                            <li className="center"><Link to="/games">Games</Link></li>
-                            <li className="center"><Link to="/articles">Articles</Link></li>
-                        </ul>
+                    <div className="searchbar white valign-wrapper">
+                        <div className="search-icon"><MaterialIcon icon="search"/></div>
+                        <input className="search-input" placeholder="Search..." value={this.state.search} onChange={(event) => this.handleSearchChange(event)}></input>
+                    </div>
+                    <ul className="hide-on-med-and-down">
+                        <li className="center"><Link to="/">Home</Link></li>
+                        <li className="center"><Link to="/games">Games</Link></li>
+                        <li className="center"><Link to="/articles">Articles</Link></li>
+                    </ul>
                     </div>
                 </nav>
+        
+                <ul className="sidenav" id="mobile-demo">
+                <li className="center"><Link to="/">Shop</Link></li>
+                <li className="center"><Link to="/about-us">About Us</Link></li>
+                <li className="center"><Link to="/games">Games</Link></li>
+                <li className="center"><Link to="/articles">Articles</Link></li>
+                </ul>
             </>
         )
     }

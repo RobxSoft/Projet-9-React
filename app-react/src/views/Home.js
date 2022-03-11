@@ -153,7 +153,7 @@ class Home extends React.Component {
                     <h2 className="flow-text">Popular Articles</h2>
                     <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
-                        {PopularArticles.map((data,i) => <ContainerArticles key={i} data={data[1]}/>)}
+                        {PopularArticles.map((data,i) => <ContainerArticles key={i} id={data[1].id} data={data[1]}/>)}
                     </div>
                 </div>
                 <Footer />

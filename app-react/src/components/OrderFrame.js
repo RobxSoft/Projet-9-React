@@ -13,13 +13,11 @@ class OrderFrame extends React.Component {
     render(){
         console.log(this.props);
         return (
-            <div className="z-depth-3">
-                <Collapsible className>
-                    <CollapsibleItem header={`Order ${this.props.data[1].id} | TOTAL ${this.props.data[1].attributes.price}$`} node="div" className="black">
-                        {this.props.data[1].attributes.games.data.map((data,i) => <p key={i}>{data.attributes.title}</p>)}
-                    </CollapsibleItem>
-                </Collapsible>
-            </div>
+            <Collapsible>
+                <CollapsibleItem header={`Order ${this.props.data[1].id} | TOTAL ${this.props.data[1].attributes.price}$`} node="div" className="black">
+                    {this.props.data[1].attributes.games.data.map((data,i) => <p key={i}>{data.attributes.title}</p>)}
+                </CollapsibleItem>
+            </Collapsible>
         )
     }
 }
