@@ -71,6 +71,11 @@
     },
     "platform": {
       "type": "string"
+    },
+    "promotion": {
+      "type": "integer",
+      "max": 100,
+      "min": 0
     }
   }
 }

@@ -94,9 +94,9 @@ class Games extends React.Component {
             <>
                 <Navbar callback={this.handleChange}/>
 
-                <div className="row">
+                <div className="row games-row">
 
-                    <div className="filters col hide-on-med-and-down s12 m12 l1">
+                    <div className="hide-on-med-and-down filters col s6 m2 l2">
                         <div className="input-field col s12">
                             <input value={this.state.filters.prices.min} placeholder="min" id="first_name" type="text" className="validate white-text" onChange={(event) => this.handlePriceChange('min', event)}/>
                             <label className="active" htmlFor="first_name">Minimum Price</label>
@@ -110,7 +110,7 @@ class Games extends React.Component {
                         </form>
                     </div>
 
-                    <div className="container-games more-stuff col s12 m12 l10">
+                    <div className="container-games col s12 m10 l10">
                         <h2 className="flow-text">Games</h2>
                         {this.props.state.games && showGames.map((game,i) => <GameFrame key={i} game={game}/>)}
                     </div>

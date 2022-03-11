@@ -6,7 +6,6 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 import ER_Image from '../img/elden_ring.jpg';
 
 class ContainerSales extends React.Component {
-
     render(){
         return (
             <div className="games-container">
@@ -15,8 +14,8 @@ class ContainerSales extends React.Component {
                     <p className="right">-25%</p>
                 </div>
                 <div className="row plus s12 m12 l12">
-                    <h3 className="col s6 m6 l6 left">Elden Ring</h3>
-                    <p className="col s6 m6 l6 right">0$</p>
+                    <h3 className="col s6 m6 l6 left">{this.props.data.attributes.title}</h3>
+                    <p className="col s6 m6 l6 right">{this.props.data.attributes.price}$</p>
                 </div>
             </div>
         )

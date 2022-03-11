@@ -305,6 +305,8 @@ h2{
   outline-width: 0;
 }
 
+
+
 .navdown .nav-wrapper {
   display: flex;
   align-items: center;
@@ -318,6 +320,10 @@ h2{
 .search-icon {
   height: 42px !important;
   line-height: 30px !important;
+}
+
+.check-box p {
+  padding-left: 0.75rem;
 }
 
 .social-network {
@@ -340,15 +346,27 @@ h2{
   color: #8D8D8D !important;
 }
 
-.container-games {
-  margin-top: 5%;
+.container-games, .container-articles {
+  border-radius: 1vh;
+  background-color: #343434;
+  color: #FFFFFF;
+  padding: 2%;
+  position: relative;
+}
+
+.container-articles {
   margin-left: 10% !important;
   margin-right: 10% !important;
   border-radius: 1vh;
   background-color: #343434;
   color: #FFFFFF;
-  position: relative;
   padding: 2%;
+  margin-top: 50px;
+}
+
+.games-row {
+  margin-right: 10% !important;
+  margin-top: 50px;
 }
 
 .more-stuff {
@@ -378,12 +396,12 @@ h2{
 }
 
 @media only screen and (max-width: 450px) {
-  .container-games h2{
+  .container-games h2, .container-articles h2{
     font-size: 25px !important;
   }
 }
 
-.container-games a {
+.container-games a, .container-articles a {
   position: absolute;
   right: 0;
   top: 0;
@@ -396,11 +414,11 @@ h2{
   line-height: 30px;
 }
 
-.container-games a:hover {
+.container-games a:hover, .container-articles a:hover {
   background-color: #292828;
 }
 
-.container-games p{
+.container-games p, .container-articles p{
   font-size: 20px;
   padding-left: 2%;
 }
@@ -412,8 +430,8 @@ h2{
   padding: 0 !important;
   width: 180px;
   height: 300px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .article-container {
@@ -443,9 +461,17 @@ h2{
   min-width: 500px !important;  
 }
 
-.games-container img, .popular-container img, .article-container img {
+.games-container img, .article-container img {
   width: 180px;
   height: 250px;
+  padding: 0;
+  border-radius: 1vh 1vh 0 0; 
+}
+
+.popular-container .img {
+  background-size: cover !important;
+  width: 100%;
+  height: 75%;
   padding: 0;
   border-radius: 1vh 1vh 0 0; 
 }
@@ -469,9 +495,9 @@ h2{
 }
 
 .games-container p, .popular-container p{
-  font-size: 15px;
+  font-size: 12px !important;
   text-align: right;
-  margin-right: 5px;
+  margin-right: 2% !important;
 }
 
 .article-container p {
@@ -483,19 +509,32 @@ h2{
   margin-left: 2% !important;
   font-size: 12px !important;
   margin-top: 5px;
-  text-align: left;
 }
 
 .article-container h3 {
   font-size: 20px !important;
 }
 
+.popular-container .row {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
 
+}
+
+.games-container .row {
+  padding-top: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
 
 .games-container .row .col, .popular-container .row .col, .article-container .row .col {
- margin-top: 10px;
- margin-bottom: -30px;
- font-size: 12px !important;
+  font-size: 12px !important;
+  margin: 0 !important;
+}
+
+.games-container .row .col {
+  padding: 0 !important;
 }
 
 .sales {
@@ -640,11 +679,8 @@ h2{
 }
 
 .filters {
-  background-color: #343434;
-  border-radius: 1vh;
   position: sticky;
   top: 25%;
-  padding-top: 20px !important;
 }
 
 .link {
@@ -653,6 +689,10 @@ h2{
   border: 0px !important;
   text-align: left !important;
   margin: 0 !important;
+}
+
+.link:hover {
+  background: none !important;
 }
 
 .blue_btn{

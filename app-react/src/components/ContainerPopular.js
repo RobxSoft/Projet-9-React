@@ -3,20 +3,22 @@ import React, {Component} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import { Link } from 'react-router-dom';
 
 const LINK = "http://localhost:1337";
 
 class ContainerPopular extends React.Component {
     render(){
-        console.log(this.props.data);
         return (
+            <Link className="link" to={`/gameinfo/${this.props.data.id}`}>
             <div className="popular-container">
-                <img src={LINK+this.props.data.attributes.icon.data.attributes.url}/>
-                <div className="row">
-                    <h3 className="left col s6 m6 l6">{this.props.data.attributes.title}</h3>
-                    <p className="right col s6 m6 l6">{this.props.data.attributes.price}$</p>
+                <div className="img" style={{background : `url(${LINK+this.props.data.attributes.icon.data.attributes.url}) center`}}></div>
+                <div className="row valign-wrapper">
+                    <h3 className="col s6 m6 l6 ">{this.props.data.attributes.title}</h3>
+                    <p className="col s6 m6 l6">{this.props.data.attributes.price}$</p>
                 </div>
             </div>
+            </Link>
         )
     }
 }

@@ -64,6 +64,16 @@ class Home extends React.Component {
         // Create a new array with only the first 5 items
         PopularGames.slice(0, 5)
 
+        //sales games
+        var SalesGames = Object.keys(this.props.state.games.data).map(function(key) {
+            console.log(key);
+            return [key, games[key]];
+        });
+        SalesGames.sort(function(first, second) {
+            console.log(first[1].attributes, second);
+            return second[1].attributes.sales - first[1].attributes.sales;
+        });
+
         return(
             <>
                 <Navbar callback={this.handleChange}/>
@@ -83,7 +93,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="container-games">
+                <div className="container-articles">
                     <h2 className="flow-text">Popular Games</h2>
                     <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
@@ -91,15 +101,11 @@ class Home extends React.Component {
                     </div>
                 </div>
                 
-                <div className="container-games">
+                <div className="container-articles ">
                     <h2 className="flow-text">Sales</h2>
                     <Link className="waves-effect btn z-depth-0" to="/games">SEE ALL</Link>
                     <div className="send-game-container">
-                        <ContainerSales/>
-                        <ContainerSales/>
-                        <ContainerSales/>
-                        <ContainerSales/>
-                        <ContainerSales/>
+                        {SalesGames.map((data,i) => <ContainerSales key={i} data={data[1]}/>)}
                     </div>
                 </div>
                 <div className="featured-title container center">
@@ -133,7 +139,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="container-games">
+                <div className="container-articles">
                     <h2 className="flow-text">Popular Articles</h2>
                     <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
@@ -143,7 +149,7 @@ class Home extends React.Component {
                         <ContainerArticles article={this.props.state.articles.data[0].attributes} />
                     </div>
                 </div>
-                <div className="container-games">
+                <div className="container-articles">
                     <h2 className="flow-text">Latest Articles</h2>
                     <Link className="waves-effect btn z-depth-0" to="/articles">SEE ALL</Link>
                     <div className="send-game-container">
