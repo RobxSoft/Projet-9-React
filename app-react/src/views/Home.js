@@ -77,8 +77,8 @@ class Home extends React.Component {
         });
         
         // Create a new array with only the first 5 items
-        PopularGames.slice(0, 5)
-        PopularArticles.slice(0, 5)
+        PopularGames = PopularGames.slice(0, 5);
+        PopularArticles = PopularArticles.slice(0, 5)
 
         //sales games
         var SalesGames = Object.keys(this.props.state.games.data).map(function(key) {
@@ -89,6 +89,7 @@ class Home extends React.Component {
         SalesGames.sort(function(first, second) {
             return second[1].attributes.sales - first[1].attributes.sales;
         });
+        SalesGames = SalesGames.slice(0, 10)
         //cleaning up
         for (const [key, value] of Object.entries(SalesGames)) {
             if (value === undefined){

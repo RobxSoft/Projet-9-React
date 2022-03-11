@@ -73,6 +73,8 @@ class GameInfo extends React.Component {
             categories.push(value)
         };
 
+        const currentPromotion = (this.state.game.attributes.price*(this.state.game.attributes.promotion/100)); 
+
         return(
             <React.Fragment>
                 <Navbar/>
@@ -99,7 +101,7 @@ class GameInfo extends React.Component {
                             </div>
                             
                             <div className="container">
-                                <p>{this.state.game.attributes.price}$</p>
+                                <p>{(this.state.game.attributes.price-currentPromotion).toFixed(2)}$</p>
                                 <div><Link to="/basket" onClick={this.buyGame} className="purchase waves-effect waves-light btn-large">PURCHASE</Link></div>
                                 <div><a onClick={this.addToBasket} className="add-basket waves-effect waves-light btn-large">ADD TO BASKET</a></div>
                                 <div className="row">

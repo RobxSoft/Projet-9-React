@@ -22,7 +22,7 @@ class CreatorFrame extends React.Component {
                 </div>
                 <div class="col s12 m12 l8">
                     <h3>{this.state.data.attributes.name}</h3>
-                    <p>{this.state.data.attributes.description}$</p>
+                    <p>{this.state.data.attributes.description}</p>
                 </div>
             </div>
         )

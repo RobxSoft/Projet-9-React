@@ -17,8 +17,8 @@ class OrderFrame extends React.Component {
                     <img className="responsive-img" src={image}/>
                 </div>
                 <div class="col s12 m8 l8">
-                    <p>Order : zaibfakzjfbazkjbazjbazjbjlg</p>
-                    <h5>TOTAL : 00$</h5>
+                    <p>Order : Elden Ring</p>
+                    <h5>TOTAL : 49.99$</h5>
                 </div>
             </div>
         )

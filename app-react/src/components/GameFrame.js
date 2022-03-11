@@ -13,13 +13,15 @@ class GameFrame extends React.Component {
     }
 
     render(){
+        const currentPromotion = (this.props.game.attributes.price*(this.props.game.attributes.promotion/100)); 
+
         return (
             <Link className="link" to={`/gameinfo/${this.props.game.id}`}>
             <div className="games-container col">
                 <img src={`${LINK+this.props.game.attributes.icon.data.attributes.url}`}/>
                 <div className="row valign-wrapper">
                     <h3 className="col s6 m6 l6 ">{this.props.game.attributes.title}</h3>
-                    <p className="col s6 m6 l6">{this.props.game.attributes.price}$</p>
+                    <p className="col s6 m6 l6">{(this.props.game.attributes.price-currentPromotion).toFixed(2)}$</p>
                 </div>
             </div>
             </Link>
